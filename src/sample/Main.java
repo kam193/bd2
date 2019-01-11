@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import db.Driver;
 
 public class Main extends Application {
 
@@ -18,6 +19,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        Driver.main();
+        System.exit(0);
         launch(args);
     }
 }
