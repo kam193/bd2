@@ -16,6 +16,8 @@ public class Driver {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		closeConnection(connection);
 	}
 
 	static Connection createConnection() {
@@ -34,6 +36,14 @@ public class Driver {
 			System.out.println("Could not connect to the database " + e.getMessage());
 		}
 		return connection;
+	}
+	static void closeConnection(Connection connection) {
+	    if (connection != null) {
+	        try {
+	            connection.close();
+	            System.out.println("Successfully unconnected from the database!");
+	        } catch (SQLException e) { /* ignored */}
+	    }
 	}
 
 	public static void viewTable(Connection con, String dbName)throws SQLException {
