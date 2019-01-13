@@ -27,20 +27,9 @@ public class SamochodDriver {
     }
 
     public static void insert(Samochod samochod){
-        Statement statement = null;
         String query = String.format("insert into Samochod values (%s)", samochod.toString());
 
-        try {
-            statement = Driver.getConnection().createStatement();
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (statement != null)
-                    statement.close();
-            } catch (SQLException e) { /* ignore */ }
-        }
+        Driver.insertWithoutAutoId(query);
     }
 
     private static List<Samochod> getFromDB(String filters) {
