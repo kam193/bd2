@@ -3,11 +3,7 @@ package db;
 import data_structure.Komis;
 import javafx.scene.control.TableView;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class KomisDriver {
     public static void insert(Komis komis) {

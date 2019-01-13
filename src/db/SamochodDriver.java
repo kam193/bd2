@@ -3,11 +3,7 @@ package db;
 import data_structure.Samochod;
 import javafx.scene.control.TableView;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SamochodDriver {
     public static TableView getAll() {
