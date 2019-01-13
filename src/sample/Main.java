@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import db.Driver;
 
@@ -18,8 +19,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+
+//        TableView tableview = new TableView();
+        TableView tableView = new TableView();
+        ModelDriver.buildData(tableView);
+
+        Scene scene = new Scene(tableView);
         primaryStage.setTitle("Komis samochodowy");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
@@ -36,7 +43,7 @@ public class Main extends Application {
             System.out.println(mod.toString());
         for (Samochod sam : SamochodDriver.getAll())
             System.out.println(sam.toString());
-//        launch(args);
+        launch(args);
         Driver.closeSharedConnection();
         System.exit(0);
     }

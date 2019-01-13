@@ -7,7 +7,7 @@ public class Driver {
 
     public static Connection getConnection(){
         if (conn == null)
-            conn = createConnection("user", "passwd", "mydb");
+            conn = createConnection("dbadmin", "null", "mydb2");
         return conn;
     }
 
@@ -33,7 +33,7 @@ public class Driver {
     private static Connection createConnection(String username, String password, String dbname) {
         Connection connection = null;
         try {
-            String url = "jdbc:mysql://tombaky.com:3307/mydb";
+            String url = "jdbc:mysql://tombaky.com:3307/mydb2";
 
             connection = DriverManager.getConnection(url, username, password);
             connection.setCatalog(dbname);
