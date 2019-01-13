@@ -19,7 +19,7 @@ public class Driver {
 
     public static Connection getConnection(){
         if (conn == null)
-            conn = createConnection("dbadmin", "baza_do_BD2", "mydb");
+            conn = createConnection("user", "password", "mydb");
         return conn;
     }
 

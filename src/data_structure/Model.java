@@ -5,9 +5,9 @@ public class Model {
     String Marka;
     int Ilosc_drzwi;
     int Masa;
-    int Naped;
+    String Naped;
 
-    public Model(String Model, String Marka, int Ilosc_drzwi, int Masa, int Naped) {
+    public Model(String Model, String Marka, int Ilosc_drzwi, int Masa, String Naped) {
         this.Model = Model;
         this.Marka = Marka;
         this.Ilosc_drzwi = Ilosc_drzwi;
@@ -17,7 +17,7 @@ public class Model {
 
     @Override
     public String toString(){
-        String result = String.format("'%s', '%s', %d, %d, %d",
+        String result = String.format("'%s', '%s', %d, %d, '%s'",
                 Model, Marka, Ilosc_drzwi, Masa, Naped);
         return result;
     }

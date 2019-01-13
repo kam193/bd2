@@ -53,7 +53,9 @@ public class SamochodDriver {
                         rs.getString("Skrzynia_biegow"),
                         rs.getString("Paliwo"),
                         rs.getFloat("Spalanie"),
-                        rs.getString("Opis"), null, null);
+                        rs.getString("Opis"),
+                        ModelDriver.get(rs.getString("Model_Model"), rs.getString("Model_Marka")),
+                        KomisDriver.get(rs.getInt("Komis_ID")));
                 results.add(samochod);
             }
         } catch (SQLException e) {

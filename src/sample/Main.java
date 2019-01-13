@@ -25,13 +25,15 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        Model model = new Model("model1", "marka1", 5, 100, 2);
+        Model model = new Model("model1", "marka1", 5, 100, "przedni");
         Komis komis = new Komis(1, "Nazwa1", "Ulicowa", "1/2", "Warszawa", "00", "123456789");
         Samochod samochod = new Samochod(1, "Czarny", "Dostepny", 0, "jakis", 200,
                 "manualna", "AAA", 5, "Taki tam samochodzik", model, komis);
 //        ModelDriver.insert(model);
 //        KomisDriver.insert(komis);
-        SamochodDriver.insert(samochod);
+//        SamochodDriver.insert(samochod);
+        for (Model mod : ModelDriver.getAll())
+            System.out.println(mod.toString());
         for (Samochod sam : SamochodDriver.getAll())
             System.out.println(sam.toString());
 //        launch(args);
