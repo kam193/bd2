@@ -5,21 +5,9 @@ import java.sql.*;
 public class Driver {
     static Connection conn = null;
 
-    public static void main() {
-        Connection connection = createConnection("user", "passwd", "mydb");
-
-        try {
-            viewTable(connection, "mydb");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        closeConnection(connection);
-    }
-
     public static Connection getConnection(){
         if (conn == null)
-            conn = createConnection("user", "password", "mydb");
+            conn = createConnection("user", "passwd", "mydb");
         return conn;
     }
 
