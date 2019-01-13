@@ -1,6 +1,7 @@
 package db;
 
 import data_structure.Samochod;
+import javafx.scene.control.TableView;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SamochodDriver {
-    public static List<Samochod> getAll() {
+    public static TableView getAll() {
         return getFromDB("");
     }
 
-    public static List<Samochod> getByStatus(String status){
-        String filters = String.format("Status='%s'", status);
-        return getFromDB(filters);
-    }
-
-    public static Samochod get(int VIN){
-        String filters = String.format("VIN=%d", VIN);
-        List<Samochod> results = getFromDB(filters);
-        if (results.size() != 1)
-            return null;
-        return results.get(0);
-    }
+//    public static List<Samochod> getByStatus(String status){
+//        String filters = String.format("Status='%s'", status);
+//        return getFromDB(filters);
+//    }
+//
+//    public static Samochod get(int VIN){
+//        String filters = String.format("VIN=%d", VIN);
+//        List<Samochod> results = getFromDB(filters);
+//        if (results.size() != 1)
+//            return null;
+//        return results.get(0);
+//    }
 
     public static void insert(Samochod samochod){
         String query = String.format("insert into Samochod values (%s)", samochod.toString());
@@ -32,42 +33,13 @@ public class SamochodDriver {
         Driver.insertWithoutAutoId(query);
     }
 
-    private static List<Samochod> getFromDB(String filters) {
+    private static TableView getFromDB(String filters) {
         Statement statement = null;
 
         String query = "select * from Samochod";
         if (filters != null && filters.length() > 0)
             query += " where " + filters;
 
-        List<Samochod> results = new ArrayList<>();
-        try {
-            statement = Driver.getConnection().createStatement();
-            ResultSet rs = statement.executeQuery(query);
-            while (rs.next()){
-                Samochod samochod = new Samochod(rs.getInt("VIN"),
-                        rs.getString("Kolor"),
-                        rs.getString("Status"),
-                        rs.getInt("Przebieg"),
-                        rs.getString("Silnik"),
-                        rs.getInt("Moc"),
-                        rs.getString("Skrzynia_biegow"),
-                        rs.getString("Paliwo"),
-                        rs.getFloat("Spalanie"),
-                        rs.getString("Opis"),
-                        ModelDriver.get(rs.getString("Model_Model"), rs.getString("Model_Marka")),
-                        KomisDriver.get(rs.getInt("Komis_ID")));
-                results.add(samochod);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            results.clear();
-        } finally {
-            try {
-                if (statement != null)
-                    statement.close();
-            } catch (SQLException e) { /* ignore */ }
-        }
-
-        return results;
+        return Driver.getResult(query);
     }
 }

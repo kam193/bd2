@@ -20,11 +20,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
-//        TableView tableview = new TableView();
-        TableView tableView = new TableView();
-        ModelDriver.buildData(tableView);
-
+        TableView tableView = SamochodDriver.getAll();
         Scene scene = new Scene(tableView);
+
         primaryStage.setTitle("Komis samochodowy");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -39,10 +37,10 @@ public class Main extends Application {
 //        ModelDriver.insert(model);
 //        KomisDriver.insert(komis);
 //        SamochodDriver.insert(samochod);
-        for (Model mod : ModelDriver.getAll())
-            System.out.println(mod.toString());
-        for (Samochod sam : SamochodDriver.getAll())
-            System.out.println(sam.toString());
+//        for (Model mod : ModelDriver.getAll())
+//            System.out.println(mod.toString());
+//        for (Samochod sam : SamochodDriver.getAll())
+//            System.out.println(sam.toString());
         launch(args);
         Driver.closeSharedConnection();
         System.exit(0);
