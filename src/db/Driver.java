@@ -3,9 +3,10 @@ package db;
 import java.sql.*;
 
 public class Driver {
+    static Connection conn = null;
 
     public static void main() {
-        Connection connection = createConnection();
+        Connection connection = createConnection("user", "passwd", "mydb");
 
         try {
             viewTable(connection, "mydb");
@@ -16,14 +17,38 @@ public class Driver {
         closeConnection(connection);
     }
 
-    static Connection createConnection() {
+    public static Connection getConnection(){
+        if (conn == null)
+            conn = createConnection("dbadmin", "baza_do_BD2", "mydb");
+        return conn;
+    }
+
+    public static void closeSharedConnection(){
+        closeConnection(conn);
+    }
+
+    public static void insertWithoutAutoId(String query){
+        Statement statement = null;
+        try {
+            statement = Driver.getConnection().createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (statement != null)
+                    statement.close();
+            } catch (SQLException e) { /* ignore */ }
+        }
+    }
+
+    private static Connection createConnection(String username, String password, String dbname) {
         Connection connection = null;
         try {
             String url = "jdbc:mysql://tombaky.com:3307/mydb";
-            String username = "root";
-            String password = "komis1918";
 
             connection = DriverManager.getConnection(url, username, password);
+            connection.setCatalog(dbname);
 
             System.out.println("Successfully Connected to the database!");
 
@@ -33,7 +58,7 @@ public class Driver {
         return connection;
     }
 
-    static void closeConnection(Connection connection) {
+    private static void closeConnection(Connection connection) {
         if (connection != null) {
             try {
                 connection.close();
