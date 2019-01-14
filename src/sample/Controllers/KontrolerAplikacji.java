@@ -1,12 +1,9 @@
 package sample.Controllers;
 
-import db.ModelDriver;
-import db.SamochodDriver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,7 +11,7 @@ import java.io.IOException;
 public class KontrolerAplikacji {
 
     public void WyszukajSamochod(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WyszukajSamochod.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Wyszukaj/WyszukajSamochod.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Samochód");
@@ -23,7 +20,7 @@ public class KontrolerAplikacji {
     }
 
     public void WyszukajSpotkanie(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WyszukajSpotkanie.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Wyszukaj/WyszukajSpotkanie.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Spotkanie");
@@ -42,7 +39,7 @@ public class KontrolerAplikacji {
     }
 
     public void DodajSamochod(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/DodajSamochod.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajSamochod.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Dodaj Samochód");
@@ -81,5 +78,8 @@ public class KontrolerAplikacji {
     }
 
     public void OdwolajTransakcje(ActionEvent keyEvent) {
+    }
+
+    public void DodajJazde(ActionEvent actionEvent) {
     }
 }

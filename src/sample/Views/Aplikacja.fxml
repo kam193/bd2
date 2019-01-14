@@ -59,9 +59,10 @@
                               <VBox alignment="CENTER" spacing="12.0">
                                  <children>
                                     <Label text="Samochód" />
-                                    <Label text="Historię samochodu" />
                                     <Label text="Spotkanie" />
+                                    <Label text="Historię samochodu" />
                                     <Label text="Transakcje" />
+                                    <Label layoutX="44.0" layoutY="102.0" text="Jazdę próbną" />
                                  </children>
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
@@ -71,12 +72,13 @@
                         </VBox>
                         <VBox prefHeight="300.0" prefWidth="150.0">
                            <children>
-                              <VBox prefHeight="310.0" prefWidth="150.0" spacing="4.0">
+                              <VBox prefHeight="310.0" prefWidth="150.0" spacing="3.0">
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#DodajSamochod" text="Dodaj" />
                                     <Button mnemonicParsing="false" onAction="#DodajHistorie" text="Dodaj" />
                                     <Button mnemonicParsing="false" onAction="#DodajSpotkanie" text="Dodaj" />
                                     <Button mnemonicParsing="false" onAction="#DodajTransakcje" text="Dodaj" />
+                                    <Button layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#DodajJazde" text="Dodaj" />
                                  </children>
                               </VBox>
                            </children>
