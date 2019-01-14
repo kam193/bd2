@@ -2,9 +2,9 @@
   <configuration default="false" name="Main" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="sample.Main" />
     <module name="bd2" />
-    <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+    <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="sample.*" />
+        <option name="PATTERN" value="sample.Controllers.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.KontrolerAplikacji">
+   <children>
+      <Label layoutX="95.0" layoutY="76.0" text="Podaj date" />
+      <TextField fx:id="DataSpotkania" layoutX="189.0" layoutY="71.0" />
+      <Button layoutX="399.0" layoutY="71.0" mnemonicParsing="false" onAction="#SzukajSpotkania" text="Ok" />
+   </children>
+</AnchorPane>
