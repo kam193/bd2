@@ -13,15 +13,22 @@ import db.Driver;
 
 public class Main extends Application {
 
+	private static Stage pStage;
+	
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Views/Aplikacja.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/Logowanie.fxml"));
 
-        primaryStage.setTitle("Aplikacja");
+        pStage = primaryStage;
+        primaryStage.setTitle("Logowanie");
         primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.show();
     }
 
+    public static Stage getPrimaryStage() {
+        return pStage;
+    }
+    
     public static void main(String[] args) {
 
         launch(args);

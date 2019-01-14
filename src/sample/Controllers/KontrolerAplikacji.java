@@ -1,12 +1,10 @@
 package sample.Controllers;
 
 import db.ModelDriver;
-import db.SamochodDriver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,6 +33,7 @@ public class KontrolerAplikacji {
     }
 
     public void WyszukajJazde(ActionEvent keyEvent) {
+    	
     }
 
     public void WyszukajTransakcje(ActionEvent keyEvent) {
