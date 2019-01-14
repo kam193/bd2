@@ -15,7 +15,7 @@ public class Driver {
 
     public static Connection getConnection(){
         if (conn == null)
-            conn = createConnection("dbadmin", "NieCommitujTego", "mydb2");
+            conn = createConnection("dbadmin", "null", "mydb2");
         return conn;
     }
 

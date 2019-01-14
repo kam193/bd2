@@ -75,8 +75,8 @@
                               <VBox prefHeight="310.0" prefWidth="150.0" spacing="3.0">
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#DodajSamochod" text="Dodaj" />
-                                    <Button mnemonicParsing="false" onAction="#DodajHistorie" text="Dodaj" />
                                     <Button mnemonicParsing="false" onAction="#DodajSpotkanie" text="Dodaj" />
+                                    <Button mnemonicParsing="false" onAction="#DodajHistorie" text="Dodaj" />
                                     <Button mnemonicParsing="false" onAction="#DodajTransakcje" text="Dodaj" />
                                     <Button layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#DodajJazde" text="Dodaj" />
                                  </children>

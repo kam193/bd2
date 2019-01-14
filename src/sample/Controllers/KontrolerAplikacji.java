@@ -24,18 +24,26 @@ public class KontrolerAplikacji {
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Spotkanie");
-        stage.setScene(new Scene(root, 600, 500));
+        stage.setScene(new Scene(root, 450, 250));
         stage.show();
     }
 
-    public void SzukajSpotkania(ActionEvent actionEvent) {
-        // zaprogramowac sytuacje
+    public void WyszukajJazde(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Wyszukaj/WyszukajJazdeProbna.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Wyszukaj Jazde");
+        stage.setScene(new Scene(root, 450, 200));
+        stage.show();
     }
 
-    public void WyszukajJazde(ActionEvent keyEvent) {
-    }
+    public void WyszukajTransakcje(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Wyszukaj/WyszukajTransakcje.fxml"));
 
-    public void WyszukajTransakcje(ActionEvent keyEvent) {
+        Stage stage = new Stage();
+        stage.setTitle("Wyszukaj Transakcje");
+        stage.setScene(new Scene(root, 500, 250));
+        stage.show();
     }
 
     public void DodajSamochod(ActionEvent keyEvent) throws IOException {
@@ -47,13 +55,40 @@ public class KontrolerAplikacji {
         stage.show();
     }
 
-    public void DodajHistorie(ActionEvent keyEvent) {
+    public void DodajHistorie(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajHistorie.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj Historię");
+        stage.setScene(new Scene(root, 450, 300));
+        stage.show();
     }
 
-    public void DodajSpotkanie(ActionEvent keyEvent) {
+    public void DodajJazde(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajJazdeProbna.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj Jazde");
+        stage.setScene(new Scene(root, 425, 200));
+        stage.show();
     }
 
-    public void DodajTransakcje(ActionEvent keyEvent) {
+    public void DodajSpotkanie(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajSpotkanie.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj Spotkanie");
+        stage.setScene(new Scene(root, 450, 400));
+        stage.show();
+    }
+
+    public void DodajTransakcje(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajTransakcje.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj Transakcje");
+        stage.setScene(new Scene(root, 450, 250));
+        stage.show();
     }
 
     public void ModyfikujSamochod(ActionEvent keyEvent) {
@@ -80,6 +115,4 @@ public class KontrolerAplikacji {
     public void OdwolajTransakcje(ActionEvent keyEvent) {
     }
 
-    public void DodajJazde(ActionEvent actionEvent) {
-    }
 }
