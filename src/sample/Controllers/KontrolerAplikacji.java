@@ -13,16 +13,17 @@ import java.io.IOException;
 
 public class KontrolerAplikacji {
 
-    public void WyszukajSamochod(ActionEvent keyEvent) {
+    public void WyszukajSamochod(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WyszukajSamochod.fxml"));
+
         Stage stage = new Stage();
-        stage.setTitle("Modele");
-        stage.setScene(new Scene(ModelDriver.getAll(),500,800));
+        stage.setTitle("Wyszukaj Samochód");
+        stage.setScene(new Scene(root, 450, 400));
         stage.show();
     }
 
     public void WyszukajSpotkanie(ActionEvent keyEvent) throws IOException {
-    System.out.println("ok");
-                Parent root = FXMLLoader.load(getClass().getResource("../Views/WyszukajSpotkanie.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WyszukajSpotkanie.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Spotkanie");
@@ -40,7 +41,13 @@ public class KontrolerAplikacji {
     public void WyszukajTransakcje(ActionEvent keyEvent) {
     }
 
-    public void DodajSamochod(ActionEvent keyEvent) {
+    public void DodajSamochod(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/DodajSamochod.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj Samochód");
+        stage.setScene(new Scene(root, 450, 400));
+        stage.show();
     }
 
     public void DodajHistorie(ActionEvent keyEvent) {
