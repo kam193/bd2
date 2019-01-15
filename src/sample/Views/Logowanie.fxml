@@ -16,7 +16,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" text="Login" />
-                  <TextField fx:id="Login" alignment="CENTER" prefHeight="26.0" prefWidth="106.0">
+                  <TextField fx:id="login_input" alignment="CENTER" prefHeight="26.0" prefWidth="106.0">
                      <HBox.margin>
                         <Insets left="8.0" />
                      </HBox.margin></TextField>
@@ -25,7 +25,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="296.0">
                <children>
                   <Label text="Password" />
-                  <PasswordField fx:id="Password" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="110.0">
+                  <PasswordField fx:id="password_input" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="110.0">
                      <HBox.margin>
                         <Insets left="8.0" />
                      </HBox.margin></PasswordField>
