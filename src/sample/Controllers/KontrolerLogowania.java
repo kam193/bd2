@@ -38,10 +38,16 @@ public class KontrolerLogowania {
 
 			System.out.println(Login +" "+Password +" "+ID +" "+Typ +" ");
 
+			Parent root = null;
+			if(Typ.equals("admin") || Typ.equals("sprzedawca")){
+				root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/AplikacjaSprzedawcy.fxml"));
+			} else if(Typ.equals("klient")){
+				root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/AplikacjaKlienta.fxml"));
+			}
 
-			//TODO stworzyæ 2 wersje Aplikacja.fxml - dla klientów i sprzedawców.
-			//£adowaæ odpowiedni¹ w zale¿noœci od parametru Typ
-			Parent root = FXMLLoader.load(getClass().getResource("../Views/Aplikacja.fxml"));
+			//TODO stworzyï¿½ 2 wersje AplikacjaSprzedawcy.fxml - dla klientï¿½w i sprzedawcï¿½w.
+			//ï¿½adowaï¿½ odpowiedniï¿½ w zaleï¿½noï¿½ci od parametru Typ
+
 
 			Stage stage = new Stage();
 			stage.setTitle("Aplikacja");
@@ -56,8 +62,8 @@ public class KontrolerLogowania {
 
 			Stage stage2 = new Stage();
 			stage2.close();
-			stage2.setTitle("B³¹d");
-			stage2.setScene(new Scene(root, 160, 50));
+			stage2.setTitle("Bï¿½ï¿½d");
+			stage2.setScene(new Scene(root, 260, 50));
 			stage2.show();
 		}
 	}

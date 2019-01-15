@@ -11,7 +11,7 @@ import java.io.IOException;
 public class KontrolerAplikacji {
 
     public void WyszukajSamochod(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Wyszukaj/WyszukajSamochod.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajSamochod.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Samochód");
@@ -20,7 +20,7 @@ public class KontrolerAplikacji {
     }
 
     public void WyszukajSpotkanie(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Wyszukaj/WyszukajSpotkanie.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajSpotkanie.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Spotkanie");
@@ -29,7 +29,7 @@ public class KontrolerAplikacji {
     }
 
     public void WyszukajJazde(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Wyszukaj/WyszukajJazdeProbna.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajJazdeProbna.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Jazde");
@@ -38,7 +38,7 @@ public class KontrolerAplikacji {
     }
 
     public void WyszukajTransakcje(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Wyszukaj/WyszukajTransakcje.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajTransakcje.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Transakcje");
@@ -47,7 +47,7 @@ public class KontrolerAplikacji {
     }
 
     public void DodajSamochod(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajSamochod.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSamochod.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Dodaj Samochód");
@@ -56,7 +56,7 @@ public class KontrolerAplikacji {
     }
 
     public void DodajHistorie(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajHistorie.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajHistorie.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Dodaj Historię");
@@ -65,7 +65,7 @@ public class KontrolerAplikacji {
     }
 
     public void DodajJazde(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajJazdeProbna.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajJazdeProbna.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Dodaj Jazde");
@@ -74,7 +74,7 @@ public class KontrolerAplikacji {
     }
 
     public void DodajSpotkanie(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajSpotkanie.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSpotkanie.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Dodaj Spotkanie");
@@ -83,7 +83,7 @@ public class KontrolerAplikacji {
     }
 
     public void DodajTransakcje(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/Dodaj/DodajTransakcje.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajTransakcje.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Dodaj Transakcje");

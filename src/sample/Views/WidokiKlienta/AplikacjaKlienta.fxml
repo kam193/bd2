@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="365.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.KontrolerAplikacji">
+  <tabs>
+    <Tab text="Wyszukaj">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="451.0" prefWidth="814.0">
+               <children>
+                  <HBox layoutX="30.0" layoutY="40.0" prefHeight="300.0" prefWidth="190.0">
+                     <children>
+                        <VBox prefHeight="300.0" prefWidth="150.0">
+                           <children>
+                              <VBox alignment="CENTER" spacing="12.0">
+                                 <children>
+                                    <Label text="Samochód" />
+                                    <Label text="Spotkanie" />
+                                    <Label text="Transakcje" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="300.0" prefWidth="150.0">
+                           <children>
+                              <VBox prefHeight="310.0" prefWidth="150.0" spacing="4.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#WyszukajSamochod" text="Wyszukaj" />
+                                    <Button mnemonicParsing="false" onAction="#WyszukajSpotkanie" text="Wyszukaj" />
+                                    <Button mnemonicParsing="false" onAction="#WyszukajTransakcje" text="Wyszukaj" />
+                                 </children></VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Dodaj">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <HBox layoutX="30.0" layoutY="40.0" prefHeight="300.0" prefWidth="276.0">
+                     <children>
+                        <VBox prefHeight="300.0" prefWidth="150.0">
+                           <children>
+                              <VBox alignment="CENTER" spacing="12.0">
+                                 <children>
+                                    <Label text="Spotkanie" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="300.0" prefWidth="150.0">
+                           <children>
+                              <VBox prefHeight="310.0" prefWidth="150.0" spacing="3.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#DodajSpotkanie" text="Dodaj" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Usuń">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <HBox layoutX="30.0" layoutY="40.0" prefHeight="300.0" prefWidth="190.0">
+                     <children>
+                        <VBox prefHeight="300.0" prefWidth="150.0">
+                           <children>
+                              <VBox alignment="CENTER" spacing="12.0">
+                                 <children>
+                                    <Label text="Spotkanie" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="300.0" prefWidth="150.0">
+                           <children>
+                              <VBox prefHeight="310.0" prefWidth="150.0" spacing="4.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#OdwolajSpotkanie" text="Odwołaj" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Pomoc">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="99.0" layoutY="98.0" text="Kto stworzył apkę etc?" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
