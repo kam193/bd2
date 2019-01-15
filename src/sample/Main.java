@@ -21,7 +21,7 @@ public class Main extends Application {
 
         pStage = primaryStage;
         primaryStage.setTitle("Logowanie");
-        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setScene(new Scene(root, 350, 250));
         primaryStage.show();
     }
 
