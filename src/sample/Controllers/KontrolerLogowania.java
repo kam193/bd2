@@ -80,6 +80,10 @@ public class KontrolerLogowania {
 		return ID;
 	}
 
+	public static String getTyp() {
+		return Typ;
+	}
+
 	private static void getUserFromDB(Connection con) throws SQLException {
 		Statement stmt = null;
 

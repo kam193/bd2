@@ -10,8 +10,17 @@ import java.io.IOException;
 
 public class KontrolerAplikacji {
 
+    private String admin = "admin";
+    private String client = "klient";
+    private String seller = "sprzedawca";
+
     public void WyszukajSamochod(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajSamochod.fxml"));
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajSamochod.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajSamochod.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Samochód");
@@ -20,7 +29,12 @@ public class KontrolerAplikacji {
     }
 
     public void WyszukajSpotkanie(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajSpotkanie.fxml"));
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajSpotkanie.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajSpotkanie.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Spotkanie");
@@ -28,17 +42,13 @@ public class KontrolerAplikacji {
         stage.show();
     }
 
-    public void WyszukajJazde(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajJazdeProbna.fxml"));
-
-        Stage stage = new Stage();
-        stage.setTitle("Wyszukaj Jazde");
-        stage.setScene(new Scene(root, 450, 200));
-        stage.show();
-    }
-
     public void WyszukajTransakcje(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajTransakcje.fxml"));
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajTransakcje.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajTransakcje.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Transakcje");
@@ -55,26 +65,13 @@ public class KontrolerAplikacji {
         stage.show();
     }
 
-    public void DodajHistorie(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajHistorie.fxml"));
-
-        Stage stage = new Stage();
-        stage.setTitle("Dodaj Historię");
-        stage.setScene(new Scene(root, 450, 300));
-        stage.show();
-    }
-
-    public void DodajJazde(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajJazdeProbna.fxml"));
-
-        Stage stage = new Stage();
-        stage.setTitle("Dodaj Jazde");
-        stage.setScene(new Scene(root, 425, 200));
-        stage.show();
-    }
-
     public void DodajSpotkanie(ActionEvent keyEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSpotkanie.fxml"));
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSpotkanie.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Dodaj/DodajSpotkanie.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Dodaj Spotkanie");
@@ -91,28 +88,27 @@ public class KontrolerAplikacji {
         stage.show();
     }
 
-    public void ModyfikujSamochod(ActionEvent keyEvent) {
+    public void UsunSamochod(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Usuwanie/UsunSamochod.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Usun Samochod z bazy");
+        stage.setScene(new Scene(root, 400, 100));
+        stage.show();
     }
 
-    public void ModyfikujSpotkanie(ActionEvent keyEvent) {
-    }
+    public void OdwolajSpotkanie(ActionEvent keyEvent) throws IOException {
+        Parent root = null;
 
-    public void ModyfikujJazde(ActionEvent keyEvent) {
-    }
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Usuwanie/UsunSpotkanie.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Usuwanie/UsunSpotkanie.fxml"));
 
-    public void ModyfikujTransakcje(ActionEvent keyEvent) {
-    }
-
-    public void UsunSamochod(ActionEvent keyEvent) {
-    }
-
-    public void OdwolajSpotkanie(ActionEvent keyEvent) {
-    }
-
-    public void OdwolajJazde(ActionEvent keyEvent) {
-    }
-
-    public void OdwolajTransakcje(ActionEvent keyEvent) {
+        Stage stage = new Stage();
+        stage.setTitle("Usun Spotkanie z bazy");
+        stage.setScene(new Scene(root, 400, 100));
+        stage.show();
     }
 
 }
