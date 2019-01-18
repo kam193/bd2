@@ -33,14 +33,14 @@
                         <children>
                            <HBox prefHeight="32.0" prefWidth="111.0" spacing="2.0">
                               <children>
-                                 <TextField promptText="DD" />
-                                 <TextField layoutX="10.0" layoutY="10.0" promptText="MM" />
-                                 <TextField layoutX="66.0" layoutY="10.0" promptText="RRRR" />
+                                 <TextField fx:id="day" promptText="DD" />
+                                 <TextField fx:id="month" layoutX="10.0" layoutY="10.0" promptText="MM" />
+                                 <TextField fx:id="year" layoutX="66.0" layoutY="10.0" promptText="RRRR" />
                               </children>
                            </HBox>
                            <HBox prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                               <children>
-                                 <TextField />
+                                 <TextField fx:id="KomisID" />
                               </children>
                               <opaqueInsets>
                                  <Insets left="8.0" right="8.0" />
@@ -56,6 +56,6 @@
                </VBox>
             </children>
          </HBox>
-         <Button layoutX="317.0" layoutY="132.0" mnemonicParsing="false" text="Wyszukaj" />
+         <Button layoutX="317.0" layoutY="132.0" mnemonicParsing="false" onAction="#WyszukajSpotkanie" text="Wyszukaj" />
       </children></AnchorPane>
 </Pane>

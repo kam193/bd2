@@ -36,31 +36,31 @@
                                 <children>
                            <HBox prefHeight="32.0" prefWidth="111.0" spacing="2.0">
                               <children>
-                                 <TextField promptText="DD" />
-                                 <TextField layoutX="10.0" layoutY="10.0" promptText="MM" />
-                                 <TextField layoutX="66.0" layoutY="10.0" promptText="RRRR" />
+                                 <TextField fx:id="day" promptText="DD" />
+                                 <TextField fx:id="month" layoutX="10.0" layoutY="10.0" promptText="MM" />
+                                 <TextField fx:id="year" layoutX="66.0" layoutY="10.0" promptText="RRRR" />
                               </children>
                            </HBox>
                                     <HBox prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                         <children>
-                                            <TextField />
+                                            <TextField fx:id="komisID" />
                                         </children>
                                         <opaqueInsets>
                                             <Insets left="8.0" right="8.0" />
                                         </opaqueInsets>
                                     </HBox>
-                                    <TextField prefHeight="26.0" prefWidth="102.0" />
+                                    <TextField fx:id="VIN" prefHeight="26.0" prefWidth="102.0" />
                                     <HBox layoutX="10.0" layoutY="147.0" prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                         <opaqueInsets>
                                             <Insets left="8.0" right="8.0" />
                                         </opaqueInsets>
                                     </HBox>
-                           <TextArea prefHeight="245.0" prefWidth="160.0" />
+                           <TextArea fx:id="komentarz" prefHeight="245.0" prefWidth="160.0" />
                                 </children></VBox>
                         </children>
                     </VBox>
                 </children>
             </HBox>
-            <Button layoutX="331.0" layoutY="319.0" mnemonicParsing="false" text="Dodaj" />
+            <Button layoutX="331.0" layoutY="319.0" mnemonicParsing="false" onAction="#DodajSpotkanie" text="Dodaj" />
         </children></AnchorPane>
 </Pane>

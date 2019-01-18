@@ -36,24 +36,24 @@
                                 <children>
                                     <HBox prefHeight="32.0" prefWidth="111.0" spacing="2.0">
                                         <children>
-                                            <TextField promptText="DD" />
-                                            <TextField layoutX="10.0" layoutY="10.0" promptText="MM" />
-                                            <TextField layoutX="66.0" layoutY="10.0" promptText="RRRR" />
+                                            <TextField fx:id="day" promptText="DD" />
+                                            <TextField fx:id="month" layoutX="10.0" layoutY="10.0" promptText="MM" />
+                                            <TextField fx:id="year" layoutX="66.0" layoutY="10.0" promptText="RRRR" />
                                         </children>
                                     </HBox>
                            <HBox prefHeight="32.0" prefWidth="111.0" spacing="2.0">
                               <children>
-                                 <TextField promptText="Min" />
-                                 <TextField layoutX="10.0" layoutY="10.0" promptText="Max" />
+                                 <TextField fx:id="CenaMin" promptText="Min" />
+                                 <TextField fx:id="CenaMax" layoutX="10.0" layoutY="10.0" promptText="Max" />
                               </children>
                            </HBox>
-                                    <ChoiceBox prefHeight="26.0" prefWidth="188.0" />
-                                    <TextField prefHeight="26.0" prefWidth="102.0" />
+                                    <ChoiceBox fx:id="Platnosc" prefHeight="26.0" prefWidth="188.0" />
+                                    <TextField fx:id="VIN" prefHeight="26.0" prefWidth="102.0" />
                                 </children></VBox>
                         </children>
                     </VBox>
                 </children>
             </HBox>
-            <Button layoutX="375.0" layoutY="131.0" mnemonicParsing="false" text="Wyszukaj" />
+            <Button layoutX="375.0" layoutY="131.0" mnemonicParsing="false" onAction="#WyszukajTransakcje" text="Wyszukaj" />
         </children></AnchorPane>
 </Pane>

@@ -41,21 +41,21 @@
                         <children>
                             <VBox prefHeight="310.0" prefWidth="90.0" spacing="1.5">
                                 <children>
-                                    <TextField />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <ChoiceBox prefWidth="150.0" />
+                                    <TextField fx:id="VIN" />
+                                    <ChoiceBox fx:id="Kolor" prefWidth="150.0" />
+                                    <ChoiceBox fx:id="Status" prefWidth="150.0" />
                                     <HBox prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                         <children>
-                                            <TextField />
+                                            <TextField fx:id="Przebieg" />
                                         </children>
                                         <opaqueInsets>
                                             <Insets left="8.0" right="8.0" />
                                         </opaqueInsets>
                                     </HBox>
-                                    <TextField prefHeight="26.0" prefWidth="102.0" />
+                                    <TextField fx:id="Silnik" prefHeight="26.0" prefWidth="102.0" />
                                     <HBox layoutX="10.0" layoutY="100.0" prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                         <children>
-                                            <TextField>
+                                            <TextField fx:id="Moc">
                                                 <opaqueInsets>
                                                     <Insets left="8.0" />
                                                 </opaqueInsets>
@@ -65,11 +65,11 @@
                                             <Insets left="8.0" right="8.0" />
                                         </opaqueInsets>
                                     </HBox>
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <ChoiceBox prefWidth="150.0" />
+                                    <ChoiceBox fx:id="Skrzynia" prefWidth="150.0" />
+                                    <ChoiceBox fx:id="Paliwo" prefWidth="150.0" />
                                     <HBox layoutX="10.0" layoutY="147.0" prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                         <children>
-                                            <TextField>
+                                            <TextField fx:id="Spalanie">
                                                 <opaqueInsets>
                                                     <Insets left="8.0" />
                                                 </opaqueInsets>
@@ -79,13 +79,13 @@
                                             <Insets left="8.0" right="8.0" />
                                         </opaqueInsets>
                                     </HBox>
-                                    <TextField />
+                                    <TextField fx:id="Model" />
                                     <TextField layoutX="10.0" layoutY="259.0" promptText="Miasto" />
                                 </children></VBox>
                         </children>
                     </VBox>
                 </children>
             </HBox>
-            <Button layoutX="331.0" layoutY="319.0" mnemonicParsing="false" text="Dodaj" />
+            <Button layoutX="331.0" layoutY="319.0" mnemonicParsing="false" onAction="#DodajSamochod" text="Dodaj" />
         </children></AnchorPane>
 </Pane>

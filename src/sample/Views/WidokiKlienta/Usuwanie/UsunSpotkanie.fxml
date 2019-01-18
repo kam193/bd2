@@ -30,13 +30,12 @@
                         <children>
                             <VBox prefHeight="310.0" prefWidth="90.0" spacing="1.5">
                                 <children>
-                                    <TextField />
+                                    <TextField fx:id="SpotkanieID" />
                                 </children></VBox>
                         </children>
                     </VBox>
                 </children>
             </HBox>
-            <Button layoutX="334.0" layoutY="40.0" mnemonicParsing="false" text="Usuń" />
+            <Button layoutX="334.0" layoutY="40.0" mnemonicParsing="false" onAction="#UsunSpotkanie" text="Usuń" />
         </children></AnchorPane>
 </Pane>
-
