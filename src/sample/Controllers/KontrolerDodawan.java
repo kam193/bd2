@@ -26,7 +26,7 @@ public class KontrolerDodawan {
     public TextField PracownikID;
 
     public void DodajSpotkanie(ActionEvent actionEvent) {
-        
+
     }
 
     public void DodajSamochod(ActionEvent actionEvent) {

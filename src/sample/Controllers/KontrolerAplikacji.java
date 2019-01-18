@@ -10,9 +10,9 @@ import java.io.IOException;
 
 public class KontrolerAplikacji {
 
-    private String admin = "admin";
-    private String client = "klient";
-    private String seller = "sprzedawca";
+    private final String admin = "admin";
+    private final String client = "klient";
+    private final String seller = "sprzedawca";
 
     public void WyszukajSamochod(ActionEvent keyEvent) throws IOException {
         Parent root = null;

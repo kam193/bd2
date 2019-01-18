@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -45,10 +46,6 @@ public class KontrolerLogowania {
 				root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/AplikacjaKlienta.fxml"));
 			}
 
-			//TODO stworzy� 2 wersje AplikacjaSprzedawcy.fxml - dla klient�w i sprzedawc�w.
-			//�adowa� odpowiedni� w zale�no�ci od parametru Typ
-
-
 			Stage stage = new Stage();
 			stage.setTitle("Aplikacja");
 			stage.setScene(new Scene(root, 600, 500));
@@ -58,13 +55,12 @@ public class KontrolerLogowania {
 		}
 		catch(Exception e)
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("../Views/Logowanie_2.fxml"));
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Blad");
+			alert.setHeaderText("Bledny login lub haslo");
+			alert.setContentText("Sprobuj ponownie!");
 
-			Stage stage2 = new Stage();
-			stage2.close();
-			stage2.setTitle("B��d");
-			stage2.setScene(new Scene(root, 260, 50));
-			stage2.show();
+			alert.showAndWait();
 		}
 	}
 
