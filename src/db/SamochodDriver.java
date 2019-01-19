@@ -38,7 +38,7 @@ public class SamochodDriver {
 
     private static TableView getFromDB(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) throws SQLException {
 
-        String query = "select Marka,Model,Ilosc_drzwi,Kolor,Naped,Skrzynia_biegow,Silnik,Moc,Paliwo,Przebieg,VIN,Miasto"
+        String query = "select Marka,Model,Ilosc_drzwi,Kolor,Naped,Skrzynia_biegow,Silnik,Spalanie ,Moc,Paliwo,Przebieg,VIN,Status,Miasto"
         		+ " from Model as a join Samochod as b on a.Model=b.Model_Model and a.Marka=b.Model_Marka "
         		+ "join Komis as c on b.Komis_ID=c.ID where VIN <> -1";
         
