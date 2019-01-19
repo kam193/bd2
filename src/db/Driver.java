@@ -121,7 +121,10 @@ public class Driver {
             while(rs.next()){
                 ObservableList<String> row = FXCollections.observableArrayList();
                 for(int i = 1 ; i <= rs.getMetaData().getColumnCount(); ++i){
-                    row.add(rs.getString(i));
+                    if(rs.getString(i) != null)
+                        row.add(rs.getString(i));
+                    else
+                        row.add("");
                 }
                 data.add(row);
             }
