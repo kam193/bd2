@@ -3,11 +3,18 @@ package db;
 import data_structure.Samochod;
 import javafx.scene.control.TableView;
 
-import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class SamochodDriver {
-    public static TableView getAll() {
-        return getFromDB("");
+    public static TableView getAll(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) {
+        try {
+			return getFromDB(VINS,PrzebiegMinS,PrzebiegMaxS,SilnikS,MocMinS,MocMaxS,SpalanieMinS,SpalanieMaxS,ModelS,KomisIDS,KolorS,StatusS,SkrzyniaS,PaliwoS);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
     }
 
 //    public static List<Samochod> getByStatus(String status){
@@ -29,13 +36,107 @@ public class SamochodDriver {
         Driver.insertWithoutAutoId(query);
     }
 
-    private static TableView getFromDB(String filters) {
-        Statement statement = null;
+    private static TableView getFromDB(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) throws SQLException {
 
-        String query = "select * from Samochod";
-        if (filters != null && filters.length() > 0)
-            query += " where " + filters;
+        String query = "select Marka,Model,Ilosc_drzwi,Kolor,Naped,Skrzynia_biegow,Silnik,Moc,Paliwo,Przebieg,VIN,Miasto"
+        		+ " from Model as a join Samochod as b on a.Model=b.Model_Model and a.Marka=b.Model_Marka "
+        		+ "join Komis as c on b.Komis_ID=c.ID where VIN <> -1";
+        
+    	if(VINS.length()>0)
+    		query +=" and VIN= ? ";
+    	if(PrzebiegMinS.length()>0)
+    		query +=" and Przebieg>= ?";
+    	if(PrzebiegMaxS.length()>0)
+    		query +=" and Przebieg<= ?";
+    	if(SilnikS.length()>0)
+    		query +=" and Silnik= ?";
+    	if(MocMinS.length()>0)
+    		query +=" and Moc>= ?";
+    	if(MocMaxS.length()>0)
+    		query +=" and Moc<= ?";
+    	if(SpalanieMinS.length()>0)
+    		query +=" and Spalanie>= ?";
+    	if(SpalanieMaxS.length()>0)
+    		query +=" and Spalanie<= ?";
+    	if(ModelS.length()>0)
+    		query +=" and Model= ?";
+    	if(KomisIDS.length()>0)
+    		query +=" and Miasto= ?";
+    	if(KolorS.length()>0)
+    		query +=" and Kolor= ?";
+    	if(StatusS.length()>0)
+    		query +=" and Status= ?";
+    	if(SkrzyniaS.length()>0)
+    		query +=" and Skrzynia_biegow= ?";
+    	if(PaliwoS.length()>0)
+    		query +=" and Paliwo= ?";
 
-        return Driver.getResult(query);
+    	query +=" limit 200";
+        
+        PreparedStatement pstmt = Driver.conn.prepareStatement( query );
+        
+        int filters = 1;
+        
+    	if(VINS.length()>0) {
+    		pstmt.setString( filters, VINS);
+    		filters++;
+    	}
+    	if(PrzebiegMinS.length()>0) {
+    		pstmt.setString( filters, PrzebiegMinS);
+			filters++;
+    	}
+    	if(PrzebiegMaxS.length()>0) {
+    		pstmt.setString( filters, PrzebiegMaxS);
+			filters++;
+    	}
+    	if(SilnikS.length()>0) {
+    		pstmt.setString( filters, SilnikS);
+			filters++;
+    	}
+    	if(MocMinS.length()>0) {
+    		pstmt.setString( filters, MocMinS);
+			filters++;
+    	}
+    	if(MocMaxS.length()>0) {
+    		pstmt.setString( filters, MocMaxS);
+			filters++;
+    	}
+    	if(SpalanieMinS.length()>0) {
+    		pstmt.setString( filters, SpalanieMinS);
+			filters++;
+    	}
+    	if(SpalanieMaxS.length()>0) {
+    		pstmt.setString( filters, SpalanieMaxS);
+			filters++;
+    	}
+    	if(ModelS.length()>0) {
+    		pstmt.setString( filters, ModelS);
+			filters++;
+    	}
+    	if(KomisIDS.length()>0) {
+    		pstmt.setString( filters, KomisIDS);
+    		filters++;
+    	}
+    	if(KolorS.length()>0) {
+    		pstmt.setString( filters, KolorS);
+    		filters++;
+    	}
+    	if(StatusS.length()>0) {
+    		pstmt.setString( filters, StatusS);
+    		filters++;
+    	}
+    	if(SkrzyniaS.length()>0) {
+    		pstmt.setString( filters, SkrzyniaS);
+    		filters++;
+    	}
+    	if(PaliwoS.length()>0) {
+    		pstmt.setString( filters, PaliwoS);
+    		filters++;
+    	}
+    	
+    	System.out.println(pstmt);
+    	ResultSet results = pstmt.executeQuery( );
+        
+        return Driver.getResult(results);
     }
 }

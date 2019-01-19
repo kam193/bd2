@@ -90,13 +90,25 @@ public class Driver {
         }
     }
 
-    public static TableView getResult(String query) {
+    public static TableView getResult(String query){
         TableView tableview = new TableView();
         Statement statement;
         ObservableList<ObservableList> data = FXCollections.observableArrayList();
+			try {
+				statement = Driver.getConnection().createStatement();
+				ResultSet rs = statement.executeQuery(query);
+				return getResult(rs);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            return null;
+    }
+    
+    public static TableView getResult(ResultSet rs) {
+        TableView tableview = new TableView();
+        ObservableList<ObservableList> data = FXCollections.observableArrayList();
         try{
-            statement = Driver.getConnection().createStatement();
-            ResultSet rs = statement.executeQuery(query);
 
             for(int i = 0; i < rs.getMetaData().getColumnCount(); ++i){
                 final int j = i;
