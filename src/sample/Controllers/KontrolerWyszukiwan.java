@@ -29,6 +29,39 @@ public class KontrolerWyszukiwan {
     public ChoiceBox Platnosc;
     public TextField PracownikID;
 
+    public void initialize() {
+    	if(Kolor!=(null)) {
+    	Kolor.getItems().add("Czerwony");
+    	Kolor.getItems().add("Szary");
+    	Kolor.getItems().add("Zolty");
+    	Kolor.getItems().add("Srebrny");
+    	Kolor.getItems().add("Niebieski");
+    	Kolor.getItems().add("Czarny");
+    	Kolor.getItems().add("Rozowy");
+    	Kolor.getItems().add("Zielony");
+    	Kolor.getItems().add("Granatowy");
+    	Kolor.getItems().add("Fioletowy");
+    	Kolor.getItems().add("Bialy");
+    	Kolor.getItems().add("Brazowy");
+    	Kolor.getItems().add("Pomaranczowy");
+    	Kolor.getItems().add("Turkusowy");}
+    	if(Status!=(null)) {
+    	Status.getItems().add("Sprzedany");
+    	Status.getItems().add("Dostepny");
+    	Status.getItems().add("Niedost.");}
+    	if(Skrzynia!=(null)) {
+    	Skrzynia.getItems().add("Manualna");
+    	Skrzynia.getItems().add("Automat.");}
+    	if(Paliwo!=(null)) {
+    	Paliwo.getItems().add("Diesel");
+    	Paliwo.getItems().add("Benzyna");
+    	Paliwo.getItems().add("Gaz");
+    	Paliwo.getItems().add("Hybryda");}
+    	if(Platnosc!=(null)) {
+    	Platnosc.getItems().add("Karta");
+    	Platnosc.getItems().add("Gotowka");}
+    }
+    
     public void WyszukajSamochod(ActionEvent actionEvent) {
     }
 
