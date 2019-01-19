@@ -38,4 +38,5 @@ public class SamochodDriver {
 
         return Driver.getResult(query);
     }
+    
 }

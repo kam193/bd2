@@ -1,5 +1,6 @@
 package sample.Controllers;
 
+import db.Driver;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
@@ -24,6 +25,7 @@ public class KontrolerDodawan {
     public TextField KlientID;
     public TextField SamochodID;
     public TextField PracownikID;
+    public TextField komisID;
 
     public void initialize() {
     	if(Kolor!=(null)) {
@@ -60,7 +62,13 @@ public class KontrolerDodawan {
     
     
     public void DodajSpotkanie(ActionEvent actionEvent) {
-
+    	String dzien,miesiac,rok,komis,samochodID,kom;
+    	dzien=day.getText();
+    	miesiac=month.getText();
+    	rok=year.getText();
+    	komis=komisID.getText();
+    	samochodID=VIN.getText();
+    	kom=komentarz.getText();
     }
 
     public void DodajSamochod(ActionEvent actionEvent) {

@@ -121,5 +121,28 @@ public class Driver {
 
         return tableview;
     }
+    
+    public static String returnMaxID(String table) {
+    	 Statement statement = null;
+    	 String option;
+    	 ResultSet toReturn;
+    	 if(table.equals("Samochod")) option="VIN";
+    	 else option="ID";
+    	 String query =  String.format("Select Max(%s) as wynik from %s", option, table);
+         try {
+             statement = Driver.getConnection().createStatement();
+             toReturn=statement.executeQuery(query);
+             toReturn.next();
+             option=toReturn.getString("wynik");
+         } catch (SQLException e) {
+             System.out.println(e.getMessage());
+         } finally {
+             try {
+                 if (statement != null)
+                     statement.close();
+             } catch (SQLException e) { /* ignore */ }
+         }
+         return option;
+    }
 
 }
