@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -38,10 +39,12 @@ public class KontrolerLogowania {
 
 			System.out.println(Login +" "+Password +" "+ID +" "+Typ +" ");
 
-
-			//TODO stworzyæ 2 wersje Aplikacja.fxml - dla klientów i sprzedawców.
-			//£adowaæ odpowiedni¹ w zale¿noœci od parametru Typ
-			Parent root = FXMLLoader.load(getClass().getResource("../Views/Aplikacja.fxml"));
+			Parent root = null;
+			if(Typ.equals("admin") || Typ.equals("sprzedawca")){
+				root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/AplikacjaSprzedawcy.fxml"));
+			} else if(Typ.equals("klient")){
+				root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/AplikacjaKlienta.fxml"));
+			}
 
 			Stage stage = new Stage();
 			stage.setTitle("Aplikacja");
@@ -52,13 +55,12 @@ public class KontrolerLogowania {
 		}
 		catch(Exception e)
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("../Views/Logowanie_2.fxml"));
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Blad");
+			alert.setHeaderText("Bledny login lub haslo");
+			alert.setContentText("Sprobuj ponownie!");
 
-			Stage stage2 = new Stage();
-			stage2.close();
-			stage2.setTitle("B³¹d");
-			stage2.setScene(new Scene(root, 160, 50));
-			stage2.show();
+			alert.showAndWait();
 		}
 	}
 
@@ -72,6 +74,10 @@ public class KontrolerLogowania {
 
 	public static int getID() {
 		return ID;
+	}
+
+	public static String getTyp() {
+		return Typ;
 	}
 
 	private static void getUserFromDB(Connection con) throws SQLException {

@@ -1,12 +1,9 @@
 package sample;
 
-import db.ModelDriver;
-import db.SamochodDriver;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import db.Driver;
 
@@ -17,11 +14,11 @@ public class Main extends Application {
 	
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Views/Logowanie.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/Logowanie/Logowanie.fxml"));
 
         pStage = primaryStage;
         primaryStage.setTitle("Logowanie");
-        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setScene(new Scene(root, 350, 250));
         primaryStage.show();
     }
 
