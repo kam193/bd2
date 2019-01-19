@@ -1,78 +1,114 @@
 package sample.Controllers;
 
-import db.ModelDriver;
-import db.SamochodDriver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class KontrolerAplikacji {
 
-    public void WyszukajSamochod(ActionEvent keyEvent) {
+    private final String admin = "admin";
+    private final String client = "klient";
+    private final String seller = "sprzedawca";
+
+    public void WyszukajSamochod(ActionEvent keyEvent) throws IOException {
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajSamochod.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajSamochod.fxml"));
+
         Stage stage = new Stage();
-        stage.setTitle("Modele");
-        stage.setScene(new Scene(ModelDriver.getAll(),500,800));
+        stage.setTitle("Wyszukaj Samochód");
+        stage.setScene(new Scene(root, 450, 400));
         stage.show();
     }
 
     public void WyszukajSpotkanie(ActionEvent keyEvent) throws IOException {
-    System.out.println("ok");
-                Parent root = FXMLLoader.load(getClass().getResource("../Views/WyszukajSpotkanie.fxml"));
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajSpotkanie.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajSpotkanie.fxml"));
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Spotkanie");
-        stage.setScene(new Scene(root, 600, 500));
+        stage.setScene(new Scene(root, 450, 250));
         stage.show();
     }
 
-    public void SzukajSpotkania(ActionEvent actionEvent) {
-        // zaprogramowac sytuacje
+    public void WyszukajTransakcje(ActionEvent keyEvent) throws IOException {
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Wyszukaj/WyszukajTransakcje.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajTransakcje.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Wyszukaj Transakcje");
+        stage.setScene(new Scene(root, 500, 250));
+        stage.show();
     }
 
-    public void WyszukajJazde(ActionEvent keyEvent) {
+    public void DodajSamochod(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSamochod.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj Samochód");
+        stage.setScene(new Scene(root, 450, 400));
+        stage.show();
     }
 
-    public void WyszukajTransakcje(ActionEvent keyEvent) {
+    public void DodajSpotkanie(ActionEvent keyEvent) throws IOException {
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSpotkanie.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Dodaj/DodajSpotkanie.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj Spotkanie");
+        stage.setScene(new Scene(root, 450, 400));
+        stage.show();
     }
 
-    public void DodajSamochod(ActionEvent keyEvent) {
+    public void DodajTransakcje(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajTransakcje.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj Transakcje");
+        stage.setScene(new Scene(root, 450, 250));
+        stage.show();
     }
 
-    public void DodajHistorie(ActionEvent keyEvent) {
+    public void UsunSamochod(ActionEvent keyEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Usuwanie/UsunSamochod.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Usun Samochod z bazy");
+        stage.setScene(new Scene(root, 400, 100));
+        stage.show();
     }
 
-    public void DodajSpotkanie(ActionEvent keyEvent) {
+    public void OdwolajSpotkanie(ActionEvent keyEvent) throws IOException {
+        Parent root = null;
+
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Usuwanie/UsunSpotkanie.fxml"));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Usuwanie/UsunSpotkanie.fxml"));
+
+        Stage stage = new Stage();
+        stage.setTitle("Usun Spotkanie z bazy");
+        stage.setScene(new Scene(root, 400, 100));
+        stage.show();
     }
 
-    public void DodajTransakcje(ActionEvent keyEvent) {
-    }
-
-    public void ModyfikujSamochod(ActionEvent keyEvent) {
-    }
-
-    public void ModyfikujSpotkanie(ActionEvent keyEvent) {
-    }
-
-    public void ModyfikujJazde(ActionEvent keyEvent) {
-    }
-
-    public void ModyfikujTransakcje(ActionEvent keyEvent) {
-    }
-
-    public void UsunSamochod(ActionEvent keyEvent) {
-    }
-
-    public void OdwolajSpotkanie(ActionEvent keyEvent) {
-    }
-
-    public void OdwolajJazde(ActionEvent keyEvent) {
-    }
-
-    public void OdwolajTransakcje(ActionEvent keyEvent) {
-    }
 }

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
+import sample.Controllers.KontrolerLogowania;
 
 import java.sql.*;
 
@@ -14,8 +15,11 @@ public class Driver {
     static Connection conn = null;
 
     public static Connection getConnection(){
-        if (conn == null)
-            conn = createConnection("dbadmin", "null", "mydb2");
+        if (conn == null) {
+        	String user = KontrolerLogowania.getUser();
+        	String password = KontrolerLogowania.getPassword();
+            conn = createConnection(user, password, "mydb2");
+        }
         return conn;
     }
 
