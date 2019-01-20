@@ -51,7 +51,6 @@ public class KontrolerLogowania {
 			stage.setScene(new Scene(root, 600, 500));
 			sample.Main.getPrimaryStage().close();
 			stage.show();
-
 		}
 		catch(Exception e)
 		{

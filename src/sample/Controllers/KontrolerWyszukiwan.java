@@ -31,6 +31,7 @@ public class KontrolerWyszukiwan {
 
     public void initialize() {
     	if(Kolor!=(null)) {
+    	Kolor.getItems().add("");
     	Kolor.getItems().add("Czerwony");
     	Kolor.getItems().add("Szary");
     	Kolor.getItems().add("Zolty");
@@ -46,18 +47,22 @@ public class KontrolerWyszukiwan {
     	Kolor.getItems().add("Pomaranczowy");
     	Kolor.getItems().add("Turkusowy");}
     	if(Status!=(null)) {
+    	Status.getItems().add("");
     	Status.getItems().add("Sprzedany");
     	Status.getItems().add("Dostepny");
     	Status.getItems().add("Niedost.");}
     	if(Skrzynia!=(null)) {
+    	Skrzynia.getItems().add("");
     	Skrzynia.getItems().add("Manualna");
     	Skrzynia.getItems().add("Automat.");}
     	if(Paliwo!=(null)) {
+    	Paliwo.getItems().add("");
     	Paliwo.getItems().add("Diesel");
     	Paliwo.getItems().add("Benzyna");
     	Paliwo.getItems().add("Gaz");
     	Paliwo.getItems().add("Hybryda");}
     	if(Platnosc!=(null)) {
+    	Platnosc.getItems().add("");
     	Platnosc.getItems().add("Karta");
     	Platnosc.getItems().add("Gotowka");}
     }

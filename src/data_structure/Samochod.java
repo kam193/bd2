@@ -41,6 +41,5 @@ public class Samochod {
                 VIN, Kolor, Status, Przebieg, Silnik, Moc, Skrzynia_biegow, Paliwo, Spalanie, Opis, komis.ID, model.Model, model.Marka);
         return result;
     }
-    
 
 }
