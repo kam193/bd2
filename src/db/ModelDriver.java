@@ -31,4 +31,9 @@ public class ModelDriver {
             query += " where " + filters;
         return Driver.getResult(query);
     }
+
+    public static boolean isExist(String model, String marka){
+        String filter = String.format("Model = '%s' and Marka = '%s'", model, marka);
+        return getFromDB(filter).getItems().size() > 0;
+    }
 }

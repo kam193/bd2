@@ -32,4 +32,10 @@ public class KomisDriver {
 
         return Driver.getResult(query);
     }
+
+    public static boolean isExist(int id) {
+        String filters = String.format(" ID = %d", id);
+
+        return getFromDB(filters).getItems().size() > 0;
+    }
 }
