@@ -76,7 +76,33 @@ public class KontrolerDodawan {
     }
 
     public void DodajSpotkanie(ActionEvent actionEvent) {
+        String dzien, miesiac, rok, kom;
+        int komis, samochodID;
+        dzien = day.getText();
+        miesiac = month.getText();
+        rok = year.getText();
+        kom = komentarz.getText();
+        if (KomisID.getText().length() == 0 || VIN.getText().length() == 0 || dzien.length() == 0 || miesiac.length() == 0 || rok.length() == 0) {
+            ShowAlert("Bledne dane");
+            return;
+        }
+        komis = Integer.parseInt(KomisID.getText());
+        samochodID = Integer.parseInt(VIN.getText());
+        if (!KomisDriver.isExist(komis) || !SamochodDriver.isExist(VIN.getText())) {
+            ShowAlert("Komis lub samochod nie istnieja");
+            return;
+        }
 
+        try {
+//            Spotkanie toADD= new Spotkanie(rok+"-"+miesiac+"-"+dzien,kom,KontrolerLogowania.getID(),komis,samochodID);
+//            SpotkanieDriver.insert(toADD);
+            ShowOkMessage("Dodano spotkanie");
+            Stage stage = (Stage) VIN.getScene().getWindow();
+            stage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            ShowAlert("Blad dodawania spotkania");
+        }
     }
 
     public void DodajSamochod(ActionEvent actionEvent) {
@@ -106,7 +132,7 @@ public class KontrolerDodawan {
     public void DodajTransakcje(ActionEvent actionEvent) {
     }
 
-    private void ShowAlert(String messege){
+    private void ShowAlert(String messege) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Blad");
         alert.setHeaderText(messege);
@@ -115,7 +141,7 @@ public class KontrolerDodawan {
         alert.showAndWait();
     }
 
-    private void ShowOkMessage(String message){
+    private void ShowOkMessage(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Blad");
         alert.setHeaderText(message);

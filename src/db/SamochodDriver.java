@@ -36,6 +36,16 @@ public class SamochodDriver {
         Driver.insertWithoutAutoId(query);
     }
 
+    public static boolean isExist(String VIN)
+	{
+		try {
+			return getFromDB(VIN, "", "", "", "", "", "", "",
+				"", "", "", "", "", "").getItems().size() > 0;
+		} catch (Exception e){
+			return false;
+		}
+	}
+
     private static TableView getFromDB(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) throws SQLException {
 
         String query = "select Marka,Model,Ilosc_drzwi,Kolor,Naped,Skrzynia_biegow,Silnik,Spalanie ,Moc,Paliwo,Przebieg,VIN,Status,Miasto"
