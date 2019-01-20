@@ -1,13 +1,7 @@
 package sample.Controllers;
 
-import data_structure.Komis;
-import data_structure.Model;
-import data_structure.Samochod;
-import data_structure.Spotkanie;
-import db.KomisDriver;
-import db.ModelDriver;
-import db.SamochodDriver;
-import db.SpotkanieDriver;
+import data_structure.*;
+import db.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
@@ -34,7 +28,6 @@ public class KontrolerDodawan {
     public TextField Cena;
     public ChoiceBox Platnosc;
     public TextField KlientID;
-    public TextField SamochodID;
     public TextField PracownikID;
     public TextField KomisID;
     public TextField Opis;
@@ -137,6 +130,41 @@ public class KontrolerDodawan {
     }
 
     public void DodajTransakcje(ActionEvent actionEvent) {
+        try {
+            String dzien, miesiac, rok;
+            int komis, samochodID, klient;
+            dzien = day.getText();
+            miesiac = month.getText();
+            rok = year.getText();
+            if (KlientID != null)
+                klient = Integer.parseInt(KlientID.getText());
+            else
+                klient = Integer.parseInt(KontrolerLogowania.getID());
+
+            samochodID = Integer.parseInt(VIN.getText());
+
+            if (dzien.length() == 0 || miesiac.length() == 0 || rok.length() == 0) {
+                ShowAlert("Bledne dane");
+                return;
+            }
+            if (!SamochodDriver.isExist(VIN.getText())) {
+                ShowAlert("Ssamochod nie istnieje");
+                return;
+            }
+
+            Transakcja transakcja = new Transakcja(-1, rok+"-"+miesiac+"-"+dzien,
+                    Integer.parseInt(Cena.getText()), Platnosc.getSelectionModel().getSelectedItem().toString(),
+                    klient, Integer.parseInt(PracownikID.getText()), samochodID);
+
+            TransakcjaDriver.insert(transakcja);
+
+            ShowOkMessage("Dodano transakcje");
+            Stage stage = (Stage) VIN.getScene().getWindow();
+            stage.close();
+        } catch (Exception e){
+            e.printStackTrace();
+            ShowAlert("Blad podczas dodawania transakcji");
+        }
     }
 
     private void ShowAlert(String messege) {
