@@ -99,7 +99,7 @@ public class KontrolerWyszukiwan {
         Scene scene = new Scene(tableView);
     	
         Stage stage = new Stage();
-        stage.setTitle("Wyszukaj Auto");
+        stage.setTitle("Wyszukaj samochod");
         stage.setScene(scene);
         stage.show();
     }
@@ -132,7 +132,7 @@ public class KontrolerWyszukiwan {
          Scene scene = new Scene(tableView);
      	
          Stage stage = new Stage();
-         stage.setTitle("Wyszukaj Auto");
+         stage.setTitle("Wyszukaj spotkanie");
          stage.setScene(scene);
          stage.show();
     	
@@ -171,7 +171,7 @@ public class KontrolerWyszukiwan {
          Scene scene = new Scene(tableView);
      	
          Stage stage = new Stage();
-         stage.setTitle("Wyszukaj Auto");
+         stage.setTitle("Wyszukaj transakcje");
          stage.setScene(scene);
          stage.show();
     }
