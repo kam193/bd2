@@ -42,7 +42,7 @@
                               <VBox prefHeight="310.0" prefWidth="90.0" spacing="1.5">
                            <children>
                               <TextField fx:id="VIN" />
-                              <ChoiceBox fx:id="Kolor" prefWidth="150.0" />
+                              <ChoiceBox fx:id="Kolor" prefWidth="150.0"/>
                               <ChoiceBox fx:id="Status" prefWidth="150.0" />
                               <HBox prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                  <children>

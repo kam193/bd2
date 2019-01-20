@@ -22,7 +22,7 @@ public class KontrolerLogowania {
 	private static String Password;
 	private static String Login;
 	private static String Typ;
-	private static int ID;
+	private static String ID;
 
 	@FXML TextField login_input;
 	@FXML PasswordField password_input;
@@ -36,8 +36,6 @@ public class KontrolerLogowania {
 		try {
 			Connection connection = Driver.getConnection();
 			getUserFromDB(connection);
-
-			System.out.println(Login +" "+Password +" "+ID +" "+Typ +" ");
 
 			Parent root = null;
 			if(Typ.equals("admin") || Typ.equals("sprzedawca")){
@@ -72,7 +70,7 @@ public class KontrolerLogowania {
 		return Login;
 	}
 
-	public static int getID() {
+	public static String getID() {
 		return ID;
 	}
 
@@ -89,7 +87,7 @@ public class KontrolerLogowania {
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
-				ID = rs.getInt("ID");
+				ID = rs.getString("ID");
 				Typ = rs.getString("typ");
 			}
 		} catch (SQLException e ) {
