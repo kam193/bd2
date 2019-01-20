@@ -3,9 +3,11 @@ package sample.Controllers;
 import data_structure.Komis;
 import data_structure.Model;
 import data_structure.Samochod;
+import data_structure.Spotkanie;
 import db.KomisDriver;
 import db.ModelDriver;
 import db.SamochodDriver;
+import db.SpotkanieDriver;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
@@ -82,6 +84,11 @@ public class KontrolerDodawan {
         miesiac = month.getText();
         rok = year.getText();
         kom = komentarz.getText();
+        int klient;
+        if (KlientID != null)
+            klient = Integer.parseInt(KlientID.getText());
+        else
+            klient = Integer.parseInt(KontrolerLogowania.getID());
         if (KomisID.getText().length() == 0 || VIN.getText().length() == 0 || dzien.length() == 0 || miesiac.length() == 0 || rok.length() == 0) {
             ShowAlert("Bledne dane");
             return;
@@ -94,8 +101,8 @@ public class KontrolerDodawan {
         }
 
         try {
-//            Spotkanie toADD= new Spotkanie(rok+"-"+miesiac+"-"+dzien,kom,KontrolerLogowania.getID(),komis,samochodID);
-//            SpotkanieDriver.insert(toADD);
+            Spotkanie toADD= new Spotkanie(rok+"-"+miesiac+"-"+dzien,kom,klient,komis,samochodID);
+            SpotkanieDriver.insert(toADD);
             ShowOkMessage("Dodano spotkanie");
             Stage stage = (Stage) VIN.getScene().getWindow();
             stage.close();
@@ -143,7 +150,7 @@ public class KontrolerDodawan {
 
     private void ShowOkMessage(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Blad");
+        alert.setTitle("Informacja");
         alert.setHeaderText(message);
 
         alert.showAndWait();

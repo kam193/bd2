@@ -43,7 +43,7 @@
                            </HBox>
                                     <HBox prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                         <children>
-                                            <TextField fx:id="komisID" />
+                                            <TextField fx:id="KomisID"  />
                                         </children>
                                         <opaqueInsets>
                                             <Insets left="8.0" right="8.0" />

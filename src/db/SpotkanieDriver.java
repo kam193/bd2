@@ -1,5 +1,6 @@
 package db;
 
+import data_structure.Spotkanie;
 import javafx.scene.control.TableView;
 
 import java.sql.PreparedStatement;
@@ -35,7 +36,7 @@ public class SpotkanieDriver {
         int filters = 1;
         
     	if(VINS.length()>0) {
-    		pstmt.setString( filters, VINS);
+    		pstmt.setInt( filters, Integer.parseInt(VINS));
     		filters++;
     	}
     	if(KomisIDS.length()>0) {
@@ -59,4 +60,9 @@ public class SpotkanieDriver {
         
         return Driver.getResult(results);
     }
+
+	public static void insert(Spotkanie spotkanie){
+		String query = String.format("insert into Spotkanie values (%s)", spotkanie.toString());
+		Driver.insertWithoutAutoId(query);
+	}
 }
