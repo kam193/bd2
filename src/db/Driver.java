@@ -27,13 +27,11 @@ public class Driver {
         closeConnection(conn);
     }
 
-    public static void insertWithoutAutoId(String query){
+    public static void insertWithoutAutoId(String query) throws SQLException{
         Statement statement = null;
         try {
             statement = Driver.getConnection().createStatement();
             statement.executeUpdate(query);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
         } finally {
             try {
                 if (statement != null)

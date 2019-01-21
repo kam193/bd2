@@ -1,5 +1,6 @@
 package db;
 
+import data_structure.Transakcja;
 import javafx.scene.control.TableView;
 
 import java.sql.PreparedStatement;
@@ -15,6 +16,11 @@ public class TransakcjaDriver {
 			return null;
 		}
     }
+
+	public static void insert(Transakcja transakcja) throws SQLException {
+		String query = String.format("insert into Transakcja values (%s)", transakcja.toString());
+		Driver.insertWithoutAutoId(query);
+	}
 
     private static TableView getFromDB(String VINS,String PracownikIDS,String KlientIDS,String date,String CenaMinS,String CenaMaxS, String PlatnoscS) throws SQLException {
  //       Statement statement = null;

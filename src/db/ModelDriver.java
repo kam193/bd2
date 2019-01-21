@@ -6,10 +6,10 @@ import java.sql.Statement;
 
 
 public class ModelDriver {
-    public static void insert(Model model){
-        String query = String.format("insert into Model values (%s)", model.toString());
-        Driver.insertWithoutAutoId(query);
-    }
+//    public static void insert(Model model){
+//        String query = String.format("insert into Model values (%s)", model.toString());
+//        Driver.insertWithoutAutoId(query);
+//    }
 
     public static TableView getAll() {
         return getFromDB("");
@@ -30,5 +30,10 @@ public class ModelDriver {
         if (filters != null && filters.length() > 0)
             query += " where " + filters;
         return Driver.getResult(query);
+    }
+
+    public static boolean isExist(String model, String marka){
+        String filter = String.format("Model = '%s' and Marka = '%s'", model, marka);
+        return getFromDB(filter).getItems().size() > 0;
     }
 }
