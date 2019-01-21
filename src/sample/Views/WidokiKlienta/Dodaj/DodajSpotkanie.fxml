@@ -39,11 +39,12 @@
                                  <TextField fx:id="day" promptText="DD" />
                                  <TextField fx:id="month" layoutX="10.0" layoutY="10.0" promptText="MM" />
                                  <TextField fx:id="year" layoutX="66.0" layoutY="10.0" promptText="RRRR" />
+                                  <TextField fx:id="time" layoutX="66.0" layoutY="10.0" promptText="HH:mm" />
                               </children>
                            </HBox>
                                     <HBox prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                         <children>
-                                            <TextField fx:id="komisID" />
+                                            <TextField fx:id="KomisID"  />
                                         </children>
                                         <opaqueInsets>
                                             <Insets left="8.0" right="8.0" />

@@ -6,10 +6,10 @@ import javafx.scene.control.TableView;
 import java.sql.Statement;
 
 public class KomisDriver {
-    public static void insert(Komis komis) {
-        String query = String.format("insert into Komis values (%s)", komis.toString());
-        Driver.insertWithoutAutoId(query);
-    }
+//    public static void insert(Komis komis) {
+//        String query = String.format("insert into Komis values (%s)", komis.toString());
+//        Driver.insertWithoutAutoId(query);
+//    }
 
     public static TableView getAll() {
         return getFromDB("");
@@ -31,5 +31,11 @@ public class KomisDriver {
             query += " where " + filters;
 
         return Driver.getResult(query);
+    }
+
+    public static boolean isExist(int id) {
+        String filters = String.format(" ID = %d", id);
+
+        return getFromDB(filters).getItems().size() > 0;
     }
 }
