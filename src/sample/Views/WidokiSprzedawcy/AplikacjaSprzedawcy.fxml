@@ -120,7 +120,9 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="99.0" layoutY="98.0" text="Kto stworzył apkę etc?" />
+                  <Label fx:id="pomocLogin" layoutX="99.0" layoutY="70"/>
+                  <Label fx:id="pomocKonto" layoutX="99.0" layoutY="100"/>
+                  <Label fx:id="pomocID" layoutX="99.0" layoutY="130"/>
                </children></AnchorPane>
          </content>
       </Tab>
