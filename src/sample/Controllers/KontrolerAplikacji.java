@@ -53,7 +53,7 @@ public class KontrolerAplikacji {
 
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj Spotkanie");
-        stage.setScene(new Scene(root, 450, 250));
+        stage.setScene(new Scene(root, 450, 225));
         stage.show();
     }
 
@@ -76,7 +76,7 @@ public class KontrolerAplikacji {
 
         Stage stage = new Stage();
         stage.setTitle("Dodaj Samochód");
-        stage.setScene(new Scene(root, 450, 400));
+        stage.setScene(new Scene(root, 450, 530));
         stage.show();
     }
 
