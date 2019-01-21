@@ -1,11 +1,12 @@
 package sample.Controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class KontrolerAplikacji {
@@ -13,6 +14,20 @@ public class KontrolerAplikacji {
     private final String admin = "admin";
     private final String client = "klient";
     private final String seller = "sprzedawca";
+    
+    @FXML
+    private Label pomocLogin;
+    @FXML
+    private Label pomocKonto;
+    @FXML
+    private Label pomocID;
+
+    public void initialize() {
+    	pomocLogin.setText("Login: "+KontrolerLogowania.getUser());
+    	pomocKonto.setText("Typ Konta: "+KontrolerLogowania.getTyp());
+    	pomocID.setText("ID: "+KontrolerLogowania.getID());
+    }
+    
 
     public void WyszukajSamochod(ActionEvent keyEvent) throws IOException {
         Parent root = null;

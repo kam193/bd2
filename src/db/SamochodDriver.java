@@ -71,7 +71,7 @@ public class SamochodDriver {
     	if(ModelS.length()>0)
     		query +=" and Model= ?";
     	if(KomisIDS.length()>0)
-    		query +=" and Miasto= ?";
+    		query +=" and (Miasto= ? OR Komis_ID = ? ) ";
     	if(KolorS.length()>0)
     		query +=" and Kolor= ?";
     	if(StatusS.length()>0)
@@ -125,7 +125,8 @@ public class SamochodDriver {
     	}
     	if(KomisIDS.length()>0) {
     		pstmt.setString( filters, KomisIDS);
-    		filters++;
+    		pstmt.setString( filters+1, KomisIDS);
+    		filters+=2;
     	}
     	if(KolorS.length()>0) {
     		pstmt.setString( filters, KolorS);

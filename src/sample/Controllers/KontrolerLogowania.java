@@ -27,7 +27,6 @@ public class KontrolerLogowania {
 	@FXML TextField login_input;
 	@FXML PasswordField password_input;
 
-
 	public void SignIn(ActionEvent keyEvent) throws IOException { // check login and password
 
 		Login = login_input.getText();
@@ -36,7 +35,7 @@ public class KontrolerLogowania {
 		try {
 			Connection connection = Driver.getConnection();
 			getUserFromDB(connection);
-
+			
 			Parent root = null;
 			if(Typ.equals("admin") || Typ.equals("sprzedawca")){
 				root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/AplikacjaSprzedawcy.fxml"));
