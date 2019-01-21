@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class KontrolerWyszukiwan {
@@ -99,6 +100,7 @@ public class KontrolerWyszukiwan {
         Scene scene = new Scene(tableView);
     	
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Wyszukaj samochod");
         stage.setScene(scene);
         stage.show();
@@ -132,6 +134,7 @@ public class KontrolerWyszukiwan {
          Scene scene = new Scene(tableView);
      	
          Stage stage = new Stage();
+         stage.getIcons().add(new Image("icons/icon.png"));
          stage.setTitle("Wyszukaj spotkanie");
          stage.setScene(scene);
          stage.show();
@@ -171,6 +174,7 @@ public class KontrolerWyszukiwan {
          Scene scene = new Scene(tableView);
      	
          Stage stage = new Stage();
+         stage.getIcons().add(new Image("icons/icon.png"));
          stage.setTitle("Wyszukaj transakcje");
          stage.setScene(scene);
          stage.show();

@@ -159,7 +159,7 @@ public class KontrolerDodawan {
                 return;
             }
             if (!SamochodDriver.isExist(VIN.getText())) {
-                ShowAlert("Ssamochod nie istnieje");
+                ShowAlert("Samochod nie istnieje");
                 return;
             }
 
