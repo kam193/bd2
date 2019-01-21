@@ -17,7 +17,7 @@ public class TransakcjaDriver {
 		}
     }
 
-	public static void insert(Transakcja transakcja) {
+	public static void insert(Transakcja transakcja) throws SQLException {
 		String query = String.format("insert into Transakcja values (%s)", transakcja.toString());
 		Driver.insertWithoutAutoId(query);
 	}

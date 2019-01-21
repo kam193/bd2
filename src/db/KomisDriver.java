@@ -6,10 +6,10 @@ import javafx.scene.control.TableView;
 import java.sql.Statement;
 
 public class KomisDriver {
-    public static void insert(Komis komis) {
-        String query = String.format("insert into Komis values (%s)", komis.toString());
-        Driver.insertWithoutAutoId(query);
-    }
+//    public static void insert(Komis komis) {
+//        String query = String.format("insert into Komis values (%s)", komis.toString());
+//        Driver.insertWithoutAutoId(query);
+//    }
 
     public static TableView getAll() {
         return getFromDB("");

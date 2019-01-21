@@ -61,7 +61,7 @@ public class SpotkanieDriver {
         return Driver.getResult(results);
     }
 
-	public static void insert(Spotkanie spotkanie){
+	public static void insert(Spotkanie spotkanie) throws SQLException {
 		String query = String.format("insert into Spotkanie values (%s)", spotkanie.toString());
 		Driver.insertWithoutAutoId(query);
 	}

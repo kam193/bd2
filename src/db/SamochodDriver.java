@@ -30,7 +30,7 @@ public class SamochodDriver {
 //        return results.get(0);
 //    }
 
-    public static void insert(Samochod samochod){
+    public static void insert(Samochod samochod) throws SQLException {
         String query = String.format("insert into Samochod values (%s)", samochod.toString());
 
         Driver.insertWithoutAutoId(query);
@@ -48,7 +48,7 @@ public class SamochodDriver {
 
     private static TableView getFromDB(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) throws SQLException {
 
-        String query = "select Marka,Model,Ilosc_drzwi,Kolor,Naped,Skrzynia_biegow,Silnik,Spalanie ,Moc,Paliwo,Przebieg,VIN,Status,Miasto"
+        String query = "select Marka,Model,Ilosc_drzwi,Kolor,Naped,Skrzynia_biegow,Silnik,Spalanie,Moc,Paliwo,Przebieg,VIN,Status,Miasto,Opis"
         		+ " from Model as a join Samochod as b on a.Model=b.Model_Model and a.Marka=b.Model_Marka "
         		+ "join Komis as c on b.Komis_ID=c.ID where VIN <> -1";
         

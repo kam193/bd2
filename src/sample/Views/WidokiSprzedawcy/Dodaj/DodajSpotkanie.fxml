@@ -40,6 +40,7 @@
                                             <TextField fx:id="day" promptText="DD" />
                                             <TextField fx:id="month" layoutX="10.0" layoutY="10.0" promptText="MM" />
                                             <TextField fx:id="year" layoutX="66.0" layoutY="10.0" promptText="RRRR" />
+                                            <TextField fx:id="time" layoutX="66.0" layoutY="10.0" promptText="HH:mm" />
                                         </children>
                                     </HBox>
                                     <TextField fx:id="KlientID" prefHeight="26.0" prefWidth="102.0" />

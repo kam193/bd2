@@ -14,6 +14,7 @@ public class KontrolerDodawan {
     public TextField day;
     public TextField month;
     public TextField year;
+    public TextField time;
     public TextArea komentarz;
     public ChoiceBox Kolor;
     public ChoiceBox Status;
@@ -71,31 +72,41 @@ public class KontrolerDodawan {
     }
 
     public void DodajSpotkanie(ActionEvent actionEvent) {
-        String dzien, miesiac, rok, kom;
-        int komis, samochodID;
+        String dzien, miesiac, rok, komentarz, godzina;
+        int komis, klient;
+        int samochodID = -1;
+
         dzien = day.getText();
         miesiac = month.getText();
         rok = year.getText();
-        kom = komentarz.getText();
-        int klient;
+        godzina = time.getText();
+        komentarz = this.komentarz.getText();
+
         if (KlientID != null)
             klient = Integer.parseInt(KlientID.getText());
         else
             klient = Integer.parseInt(KontrolerLogowania.getID());
-        if (KomisID.getText().length() == 0 || VIN.getText().length() == 0 || dzien.length() == 0 || miesiac.length() == 0 || rok.length() == 0) {
+        if (KomisID.getText().length() == 0 || dzien.length() == 0 || miesiac.length() == 0 ||
+                rok.length() == 0 || godzina.length() == 0) {
             ShowAlert("Bledne dane");
             return;
         }
         komis = Integer.parseInt(KomisID.getText());
-        samochodID = Integer.parseInt(VIN.getText());
-        if (!KomisDriver.isExist(komis) || !SamochodDriver.isExist(VIN.getText())) {
-            ShowAlert("Komis lub samochod nie istnieja");
+        if (!KomisDriver.isExist(komis)) {
+            ShowAlert("Komis nie istnieje");
             return;
+        }
+        if (VIN.getText().length() > 0) {
+            samochodID = Integer.parseInt(VIN.getText());
+            if (!SamochodDriver.isExist(VIN.getText())) {
+                ShowAlert("Samochod nie istnieje");
+                return;
+            }
         }
 
         try {
-            Spotkanie toADD= new Spotkanie(rok+"-"+miesiac+"-"+dzien,kom,klient,komis,samochodID);
-            SpotkanieDriver.insert(toADD);
+            Spotkanie spotkanie = new Spotkanie(rok + "-" + miesiac + "-" + dzien + " " + godzina, komentarz, klient, komis, samochodID);
+            SpotkanieDriver.insert(spotkanie);
             ShowOkMessage("Dodano spotkanie");
             Stage stage = (Stage) VIN.getScene().getWindow();
             stage.close();
@@ -132,7 +143,7 @@ public class KontrolerDodawan {
     public void DodajTransakcje(ActionEvent actionEvent) {
         try {
             String dzien, miesiac, rok;
-            int komis, samochodID, klient;
+            int samochodID, klient;
             dzien = day.getText();
             miesiac = month.getText();
             rok = year.getText();
@@ -152,7 +163,7 @@ public class KontrolerDodawan {
                 return;
             }
 
-            Transakcja transakcja = new Transakcja(-1, rok+"-"+miesiac+"-"+dzien,
+            Transakcja transakcja = new Transakcja(-1, rok + "-" + miesiac + "-" + dzien,
                     Integer.parseInt(Cena.getText()), Platnosc.getSelectionModel().getSelectedItem().toString(),
                     klient, Integer.parseInt(PracownikID.getText()), samochodID);
 
@@ -161,7 +172,7 @@ public class KontrolerDodawan {
             ShowOkMessage("Dodano transakcje");
             Stage stage = (Stage) VIN.getScene().getWindow();
             stage.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             ShowAlert("Blad podczas dodawania transakcji");
         }
