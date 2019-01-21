@@ -87,7 +87,7 @@
                                  </opaqueInsets>
                               </HBox>
                               <TextField fx:id="Model" />
-                              <TextField fx:id="KomisID" layoutX="10.0" layoutY="259.0" promptText="Miasto" />
+                              <TextField fx:id="KomisID" layoutX="10.0" layoutY="259.0" promptText="Miasto / ID" />
                            </children></VBox>
                           </children>
                       </VBox>
