@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -38,7 +39,8 @@ public class KontrolerAplikacji {
             root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajSamochod.fxml"));
 
         Stage stage = new Stage();
-        stage.setTitle("Wyszukaj Samochód");
+        stage.getIcons().add(new Image("icons/icon.png"));
+        stage.setTitle("Wyszukaj auto");
         stage.setScene(new Scene(root, 450, 400));
         stage.show();
     }
@@ -52,6 +54,7 @@ public class KontrolerAplikacji {
             root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajSpotkanie.fxml"));
 
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Wyszukaj Spotkanie");
         stage.setScene(new Scene(root, 450, 225));
         stage.show();
@@ -66,6 +69,7 @@ public class KontrolerAplikacji {
             root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajTransakcje.fxml"));
 
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Wyszukaj Transakcje");
         stage.setScene(new Scene(root, 500, 250));
         stage.show();
@@ -75,7 +79,9 @@ public class KontrolerAplikacji {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSamochod.fxml"));
 
         Stage stage = new Stage();
-        stage.setTitle("Dodaj Samochód");
+
+        stage.getIcons().add(new Image("icons/icon.png"));
+        stage.setTitle("Dodaj auto");
         stage.setScene(new Scene(root, 450, 530));
         stage.show();
     }
@@ -89,6 +95,7 @@ public class KontrolerAplikacji {
             root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Dodaj/DodajSpotkanie.fxml"));
 
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Dodaj Spotkanie");
         stage.setScene(new Scene(root, 450, 400));
         stage.show();
@@ -98,6 +105,7 @@ public class KontrolerAplikacji {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajTransakcje.fxml"));
 
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Dodaj Transakcje");
         stage.setScene(new Scene(root, 450, 250));
         stage.show();
@@ -107,6 +115,7 @@ public class KontrolerAplikacji {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Usuwanie/UsunSamochod.fxml"));
 
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Usun Samochod z bazy");
         stage.setScene(new Scene(root, 400, 100));
         stage.show();
@@ -121,6 +130,7 @@ public class KontrolerAplikacji {
             root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Usuwanie/UsunSpotkanie.fxml"));
 
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Usun Spotkanie z bazy");
         stage.setScene(new Scene(root, 400, 100));
         stage.show();

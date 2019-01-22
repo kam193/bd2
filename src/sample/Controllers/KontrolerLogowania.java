@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class KontrolerLogowania {
@@ -45,6 +46,7 @@ public class KontrolerLogowania {
 
 			Stage stage = new Stage();
 			stage.setTitle("Aplikacja");
+			stage.getIcons().add(new Image("icons/icon.png"));
 			stage.setScene(new Scene(root, 500, 350));
 			sample.Main.getPrimaryStage().close();
 			stage.show();
@@ -53,7 +55,7 @@ public class KontrolerLogowania {
 		catch(Exception e)
 		{
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Blad");
+			alert.setTitle("Error");
 			alert.setHeaderText("Bledny login lub haslo");
 			alert.setContentText("Sprobuj ponownie!");
 
