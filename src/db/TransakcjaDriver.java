@@ -8,9 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TransakcjaDriver {
-    public static TableView getAll(String VINS,String PracownikIDS,String KlientIDS,String date,String CenaMinS,String CenaMaxS, String PlatnoscS) {
+    public static TableView getAll(String VINS,String PracownikIDS,String KlientIDS,String day, String month, String year,String CenaMinS,String CenaMaxS, String PlatnoscS) {
         try {
-			return getFromDB(VINS,PracownikIDS,KlientIDS,date,CenaMinS,CenaMaxS,PlatnoscS);
+			return getFromDB(VINS,PracownikIDS,KlientIDS,day,month,year,CenaMinS,CenaMaxS,PlatnoscS);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -22,9 +22,7 @@ public class TransakcjaDriver {
 		Driver.insertWithoutAutoId(query);
 	}
 
-    private static TableView getFromDB(String VINS,String PracownikIDS,String KlientIDS,String date,String CenaMinS,String CenaMaxS, String PlatnoscS) throws SQLException {
- //       Statement statement = null;
-
+    private static TableView getFromDB(String VINS,String PracownikIDS,String KlientIDS,String day, String month, String year,String CenaMinS,String CenaMaxS, String PlatnoscS) throws SQLException {
         String query = "select Samochod_VIN, Pracownik_ID, Klient_ID, Cena, Data, Metoda_Platnosci from Transakcja where ID <> -1 ";
         
     	if(VINS.length()>0)
@@ -39,8 +37,12 @@ public class TransakcjaDriver {
     		query +=" and Cena<= ? ";
     	if(PlatnoscS.length()>0)
     		query +=" and Metoda_Platnosci= ? ";
-    	if(date.length()>1)
-    		query +=" and Data <= ? and Data >= ? ";
+		if(day.length()>0)
+			query +=" and DAY(Data) = ? ";
+		if(month.length()>0)
+			query +=" and MONTH(Data) = ? ";
+		if(year.length()>0)
+			query +=" and YEAR(Data) = ? ";
 
         PreparedStatement pstmt = Driver.conn.prepareStatement( query );
         
@@ -70,13 +72,18 @@ public class TransakcjaDriver {
     		pstmt.setString( filters, PlatnoscS);
 			filters++;
     	}
-    	if(date.length()>1) {
-    		String date1 = date + " 00:00:00";
-    		String date2 = date + " 23:59:59";
-    		pstmt.setString( filters, date2);
-    		pstmt.setString( filters+1, date1);
+		if(day.length()>0) {
+			pstmt.setString( filters, day);
 			filters++;
-    	}
+		}
+		if(month.length()>0){
+			pstmt.setString(filters, month);
+			filters++;
+		}
+		if(year.length()>0){
+			pstmt.setString(filters, year);
+			filters++;
+		}
 
     	System.out.println(pstmt);
     	ResultSet results = pstmt.executeQuery( );

@@ -13,9 +13,9 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.KontrolerDodawan">
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="405.0" prefWidth="493.0">
         <children>
-            <HBox layoutX="30.0" layoutY="40.0" prefHeight="312.0" prefWidth="271.0">
+            <HBox layoutX="30.0" layoutY="40.0" prefHeight="312.0" prefWidth="320.0">
                 <children>
-                    <VBox prefHeight="300.0" prefWidth="150.0">
+                    <VBox prefHeight="312.0" prefWidth="126.0">
                         <children>
                             <VBox alignment="TOP_CENTER" prefHeight="312.0" prefWidth="92.0" spacing="12.0">
                                 <children>
@@ -31,22 +31,22 @@
                             </VBox>
                         </children>
                     </VBox>
-                    <VBox prefHeight="312.0" prefWidth="198.0">
+                    <VBox prefHeight="312.0" prefWidth="209.0">
                         <children>
                             <VBox prefHeight="310.0" prefWidth="90.0" spacing="1.5">
                                 <children>
                                     <HBox prefHeight="32.0" prefWidth="111.0" spacing="2.0">
                                         <children>
-                                            <TextField fx:id="day" promptText="DD" />
-                                            <TextField fx:id="month" layoutX="10.0" layoutY="10.0" promptText="MM" />
-                                            <TextField fx:id="year" layoutX="66.0" layoutY="10.0" promptText="RRRR" />
-                                            <TextField fx:id="time" layoutX="66.0" layoutY="10.0" promptText="HH:mm" />
+                                            <TextField fx:id="day" prefHeight="26.0" prefWidth="99.0" promptText="DD" />
+                                            <TextField fx:id="month" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="102.0" promptText="MM" />
+                                            <TextField fx:id="year" layoutX="66.0" layoutY="10.0" prefHeight="26.0" prefWidth="114.0" promptText="RRRR" />
+                                            <TextField fx:id="time" layoutX="66.0" layoutY="10.0" prefHeight="26.0" prefWidth="129.0" promptText="HH:MM" />
                                         </children>
                                     </HBox>
                                     <TextField fx:id="KlientID" prefHeight="26.0" prefWidth="102.0" />
                                     <HBox prefHeight="28.0" prefWidth="95.0" spacing="8.0">
                                         <children>
-                                            <TextField fx:id="KomisID" />
+                                            <TextField fx:id="KomisID" prefHeight="26.0" prefWidth="209.0" />
                                         </children>
                                         <opaqueInsets>
                                             <Insets left="8.0" right="8.0" />
@@ -64,6 +64,6 @@
                     </VBox>
                 </children>
             </HBox>
-            <Button layoutX="331.0" layoutY="319.0" mnemonicParsing="false" onAction="#DodajSpotkanie" text="Dodaj" />
+            <Button layoutX="364.0" layoutY="326.0" mnemonicParsing="false" onAction="#DodajSpotkanie" text="Dodaj" />
         </children></AnchorPane>
 </Pane>

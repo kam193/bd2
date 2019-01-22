@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import db.Driver;
 
@@ -17,8 +18,9 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Views/Logowanie/Logowanie.fxml"));
 
         pStage = primaryStage;
+        primaryStage.getIcons().add(new Image("icons/icon.png"));
         primaryStage.setTitle("Logowanie");
-        primaryStage.setScene(new Scene(root, 350, 250));
+        primaryStage.setScene(new Scene(root, 370, 170));
         primaryStage.show();
     }
 

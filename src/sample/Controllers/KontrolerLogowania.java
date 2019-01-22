@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class KontrolerLogowania {
@@ -27,7 +28,6 @@ public class KontrolerLogowania {
 	@FXML TextField login_input;
 	@FXML PasswordField password_input;
 
-
 	public void SignIn(ActionEvent keyEvent) throws IOException { // check login and password
 
 		Login = login_input.getText();
@@ -36,7 +36,7 @@ public class KontrolerLogowania {
 		try {
 			Connection connection = Driver.getConnection();
 			getUserFromDB(connection);
-
+			
 			Parent root = null;
 			if(Typ.equals("admin") || Typ.equals("sprzedawca")){
 				root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/AplikacjaSprzedawcy.fxml"));
@@ -46,7 +46,8 @@ public class KontrolerLogowania {
 
 			Stage stage = new Stage();
 			stage.setTitle("Aplikacja");
-			stage.setScene(new Scene(root, 600, 500));
+			stage.getIcons().add(new Image("icons/icon.png"));
+			stage.setScene(new Scene(root, 500, 350));
 			sample.Main.getPrimaryStage().close();
 			stage.show();
 
@@ -54,7 +55,7 @@ public class KontrolerLogowania {
 		catch(Exception e)
 		{
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Blad");
+			alert.setTitle("Error");
 			alert.setHeaderText("Bledny login lub haslo");
 			alert.setContentText("Sprobuj ponownie!");
 

@@ -31,7 +31,7 @@ public class KontrolerDodawan {
     public TextField KlientID;
     public TextField PracownikID;
     public TextField KomisID;
-    public TextField Opis;
+    public TextArea Opis;
 
     public void initialize() {
         if (Kolor != (null)) {
@@ -159,7 +159,7 @@ public class KontrolerDodawan {
                 return;
             }
             if (!SamochodDriver.isExist(VIN.getText())) {
-                ShowAlert("Ssamochod nie istnieje");
+                ShowAlert("Samochod nie istnieje");
                 return;
             }
 
