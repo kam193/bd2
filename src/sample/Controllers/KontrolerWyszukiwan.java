@@ -23,6 +23,7 @@ public class KontrolerWyszukiwan {
     public ChoiceBox Paliwo;
     public TextField SpalanieMin;
     public TextField SpalanieMax;
+	public TextField Marka;
     public TextField Model;
     public TextField KomisID;
     public TextField day;
@@ -77,6 +78,7 @@ public class KontrolerWyszukiwan {
     	String MocMaxS =MocMax.getText();
     	String SpalanieMinS =SpalanieMin.getText();
     	String SpalanieMaxS =SpalanieMax.getText();
+    	String MarkaS = Marka.getText();
     	String ModelS =Model.getText();
     	String KomisIDS =KomisID.getText();
     	
@@ -96,7 +98,7 @@ public class KontrolerWyszukiwan {
 	
     	System.out.println(KolorS);
     	
-        TableView tableView = db.SamochodDriver.getAll(VINS,PrzebiegMinS,PrzebiegMaxS,SilnikS,MocMinS,MocMaxS,SpalanieMinS,SpalanieMaxS,ModelS,KomisIDS,KolorS,StatusS,SkrzyniaS,PaliwoS);
+        TableView tableView = db.SamochodDriver.getAll(VINS,PrzebiegMinS,PrzebiegMaxS,SilnikS,MocMinS,MocMaxS,SpalanieMinS,SpalanieMaxS,ModelS,MarkaS,KomisIDS,KolorS,StatusS,SkrzyniaS,PaliwoS);
         Scene scene = new Scene(tableView,1650,1000);
     	
         Stage stage = new Stage();
@@ -115,12 +117,6 @@ public class KontrolerWyszukiwan {
     	String VINS ="";
     	String KlientIDS;
     	String date = "";
-		
-		
-	 	
-    	if(dayS.length()>0 && monthS.length()>0 && yearS.length()>0) {
-    		date = yearS+"-"+monthS+"-"+dayS;
-    	}
     
     	if(KontrolerLogowania.getTyp().equals("klient")) {
     		KlientIDS = KontrolerLogowania.getID();
@@ -130,7 +126,7 @@ public class KontrolerWyszukiwan {
     		VINS=VIN.getText();
     	}
     	
-    	TableView tableView = db.SpotkanieDriver.getAll(VINS,KomisIDS,KlientIDS,date);
+    	TableView tableView = db.SpotkanieDriver.getAll(VINS,KomisIDS,KlientIDS,dayS, monthS, yearS);
 
     	Scene scene = null;
 		if(KontrolerLogowania.getTyp().equals("klient"))
@@ -156,26 +152,21 @@ public class KontrolerWyszukiwan {
     	String CenaMinS =CenaMin.getText();
     	String CenaMaxS =CenaMax.getText();
     	String KlientIDS;
-    	String date = "";
     	String PlatnoscS = "";
     	
     	if(!Platnosc.getSelectionModel().isEmpty())
 			PlatnoscS = Platnosc.getSelectionModel().getSelectedItem().toString();
    
     	
-    	if(dayS.length()>0 && monthS.length()>0 && yearS.length()>0) {
-    		date = yearS+"-"+monthS+"-"+dayS;
-    		PracownikIDS =PracownikID.getText();
-    	}
-    
     	if(KontrolerLogowania.getTyp().equals("klient")) {
     		KlientIDS = KontrolerLogowania.getID();
     	}
     	else {
     		KlientIDS =KlientID.getText();
+    		PracownikIDS =PracownikID.getText();
     	}
     	
-    	 TableView tableView = db.TransakcjaDriver.getAll(VINS,PracownikIDS,KlientIDS,date,CenaMinS,CenaMaxS,PlatnoscS);
+    	 TableView tableView = db.TransakcjaDriver.getAll(VINS,PracownikIDS,KlientIDS,dayS, monthS, yearS,CenaMinS,CenaMaxS,PlatnoscS);
 
 		Scene scene = null;
     	if(KontrolerLogowania.getTyp().equals("klient"))

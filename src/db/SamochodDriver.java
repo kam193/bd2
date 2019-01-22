@@ -8,9 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SamochodDriver {
-    public static TableView getAll(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) {
+    public static TableView getAll(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String MarkaS, String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) {
         try {
-			return getFromDB(VINS,PrzebiegMinS,PrzebiegMaxS,SilnikS,MocMinS,MocMaxS,SpalanieMinS,SpalanieMaxS,ModelS,KomisIDS,KolorS,StatusS,SkrzyniaS,PaliwoS);
+			return getFromDB(VINS,PrzebiegMinS,PrzebiegMaxS,SilnikS,MocMinS,MocMaxS,SpalanieMinS,SpalanieMaxS,ModelS,MarkaS,KomisIDS,KolorS,StatusS,SkrzyniaS,PaliwoS);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -39,14 +39,14 @@ public class SamochodDriver {
     public static boolean isExist(String VIN)
 	{
 		try {
-			return getFromDB(VIN, "", "", "", "", "", "", "",
+			return getFromDB(VIN, "", "", "", "", "", "", "", "",
 				"", "", "", "", "", "").getItems().size() > 0;
 		} catch (Exception e){
 			return false;
 		}
 	}
 
-    private static TableView getFromDB(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) throws SQLException {
+    private static TableView getFromDB(String VINS,String PrzebiegMinS,String PrzebiegMaxS,String SilnikS,String MocMinS,String MocMaxS,String SpalanieMinS,String SpalanieMaxS,String ModelS,String MarkaS,String KomisIDS,String KolorS,String StatusS,String SkrzyniaS,String PaliwoS) throws SQLException {
 
         String query = "select Marka,Model,Ilosc_drzwi,Kolor,Naped,Skrzynia_biegow,Silnik,Spalanie,Moc,Paliwo,Przebieg,VIN,Status,Miasto,Opis"
         		+ " from Model as a join Samochod as b on a.Model=b.Model_Model and a.Marka=b.Model_Marka "
@@ -68,6 +68,8 @@ public class SamochodDriver {
     		query +=" and Spalanie>= ?";
     	if(SpalanieMaxS.length()>0)
     		query +=" and Spalanie<= ?";
+		if(MarkaS.length()>0)
+			query +=" and Marka= ?";
     	if(ModelS.length()>0)
     		query +=" and Model= ?";
     	if(KomisIDS.length()>0)
@@ -119,6 +121,10 @@ public class SamochodDriver {
     		pstmt.setString( filters, SpalanieMaxS);
 			filters++;
     	}
+		if(MarkaS.length()>0) {
+			pstmt.setString( filters, MarkaS);
+			filters++;
+		}
     	if(ModelS.length()>0) {
     		pstmt.setString( filters, ModelS);
 			filters++;
