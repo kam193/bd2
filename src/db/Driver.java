@@ -27,17 +27,20 @@ public class Driver {
         closeConnection(conn);
     }
 
-    public static void insertWithoutAutoId(String query) throws SQLException{
+    public static int insertWithoutAutoId(String query) throws SQLException{
         Statement statement = null;
+        int toReturn=0;
         try {
             statement = Driver.getConnection().createStatement();
-            statement.executeUpdate(query);
+            toReturn= statement.executeUpdate(query);
         } finally {
             try {
                 if (statement != null)
                     statement.close();
+                return toReturn;
             } catch (SQLException e) { /* ignore */ }
         }
+		return toReturn;
     }
 
     private static Connection createConnection(String username, String password, String dbname) {

@@ -23,7 +23,7 @@ public class KontrolerAplikacji {
             root = FXMLLoader.load(getClass().getResource("../Views/WidokiKlienta/Wyszukaj/WyszukajSamochod.fxml"));
 
         Stage stage = new Stage();
-        stage.setTitle("Wyszukaj Samochód");
+        stage.setTitle("Wyszukaj Samochod");
         stage.setScene(new Scene(root, 450, 400));
         stage.show();
     }
@@ -60,7 +60,7 @@ public class KontrolerAplikacji {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSamochod.fxml"));
 
         Stage stage = new Stage();
-        stage.setTitle("Dodaj Samochód");
+        stage.setTitle("Dodaj Samochod");
         stage.setScene(new Scene(root, 450, 400));
         stage.show();
     }
