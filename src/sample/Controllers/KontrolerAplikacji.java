@@ -56,7 +56,7 @@ public class KontrolerAplikacji {
         Stage stage = new Stage();
         stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Wyszukaj Spotkanie");
-        stage.setScene(new Scene(root, 450, 250));
+        stage.setScene(new Scene(root, 450, 225));
         stage.show();
     }
 
@@ -79,9 +79,10 @@ public class KontrolerAplikacji {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Dodaj/DodajSamochod.fxml"));
 
         Stage stage = new Stage();
+
         stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Dodaj auto");
-        stage.setScene(new Scene(root, 450, 400));
+        stage.setScene(new Scene(root, 450, 530));
         stage.show();
     }
 
