@@ -97,7 +97,7 @@ public class KontrolerWyszukiwan {
     	System.out.println(KolorS);
     	
         TableView tableView = db.SamochodDriver.getAll(VINS,PrzebiegMinS,PrzebiegMaxS,SilnikS,MocMinS,MocMaxS,SpalanieMinS,SpalanieMaxS,ModelS,KomisIDS,KolorS,StatusS,SkrzyniaS,PaliwoS);
-        Scene scene = new Scene(tableView,1500,1000);
+        Scene scene = new Scene(tableView,1650,1000);
     	
         Stage stage = new Stage();
         stage.getIcons().add(new Image("icons/icon.png"));
@@ -134,9 +134,9 @@ public class KontrolerWyszukiwan {
 
     	Scene scene = null;
 		if(KontrolerLogowania.getTyp().equals("klient"))
-	         scene = new Scene(tableView, 830,400);
+	         scene = new Scene(tableView, 930,400);
      	else if (KontrolerLogowania.getTyp().equals("sprzedawca") || KontrolerLogowania.getTyp().equals("admin"))
-			scene = new Scene(tableView, 1100,400);
+			scene = new Scene(tableView, 1250,1000);
 
          Stage stage = new Stage();
          stage.getIcons().add(new Image("icons/icon.png"));
@@ -176,7 +176,12 @@ public class KontrolerWyszukiwan {
     	}
     	
     	 TableView tableView = db.TransakcjaDriver.getAll(VINS,PracownikIDS,KlientIDS,date,CenaMinS,CenaMaxS,PlatnoscS);
-         Scene scene = new Scene(tableView,680,400);
+
+		Scene scene = null;
+    	if(KontrolerLogowania.getTyp().equals("klient"))
+			scene = new Scene(tableView,680,400);
+		else if (KontrolerLogowania.getTyp().equals("sprzedawca") || KontrolerLogowania.getTyp().equals("admin"))
+			scene = new Scene(tableView,680,1000);
      	
          Stage stage = new Stage();
          stage.getIcons().add(new Image("icons/icon.png"));

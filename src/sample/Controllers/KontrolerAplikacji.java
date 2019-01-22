@@ -56,7 +56,11 @@ public class KontrolerAplikacji {
         Stage stage = new Stage();
         stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Wyszukaj Spotkanie");
-        stage.setScene(new Scene(root, 450, 225));
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            stage.setScene(new Scene(root, 450, 225));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            stage.setScene(new Scene(root, 350, 200));
+
         stage.show();
     }
 
@@ -71,7 +75,10 @@ public class KontrolerAplikacji {
         Stage stage = new Stage();
         stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Wyszukaj Transakcje");
-        stage.setScene(new Scene(root, 500, 250));
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            stage.setScene(new Scene(root, 500, 250));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            stage.setScene(new Scene(root, 500, 210));
         stage.show();
     }
 
@@ -82,7 +89,10 @@ public class KontrolerAplikacji {
 
         stage.getIcons().add(new Image("icons/icon.png"));
         stage.setTitle("Dodaj auto");
-        stage.setScene(new Scene(root, 450, 530));
+        if(KontrolerLogowania.getTyp().equals(admin) || KontrolerLogowania.getTyp().equals(seller))
+            stage.setScene(new Scene(root, 450, 530));
+        else if(KontrolerLogowania.getTyp().equals(client))
+            stage.setScene(new Scene(root, 400, 470));
         stage.show();
     }
 
