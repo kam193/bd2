@@ -23,11 +23,12 @@ public class KontrolerUsuwan {
                 return;
             }
             int s = Integer.parseInt(VIN.getText());
-            SamochodDriver.delete(s);
+            int w = SamochodDriver.delete(s);
+            if(w==0) ShowAlert("Blad podczas usuwania");
+            else {
             ShowOkMessage("Usunieto samochod");
             Stage stage = (Stage) VIN.getScene().getWindow();
-            stage.close();
-
+            stage.close();}
         } catch (Exception e) {
             ShowAlert("Blad podczas usuwania");
             e.printStackTrace();

@@ -36,9 +36,9 @@ public class SamochodDriver {
         Driver.insertWithoutAutoId(query);
     }
     
-    public static void delete(int VIN) throws SQLException {
+    public static int delete(int VIN) throws SQLException {
     	String query = String.format("delete from Samochod where VIN=%d", VIN);
-    	Driver.insertWithoutAutoId(query);
+    	return Driver.insertWithoutAutoId(query);
     }
 
     public static boolean isExist(String VIN)
