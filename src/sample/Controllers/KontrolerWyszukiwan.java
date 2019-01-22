@@ -96,7 +96,7 @@ public class KontrolerWyszukiwan {
     	System.out.println(KolorS);
     	
         TableView tableView = db.SamochodDriver.getAll(VINS,PrzebiegMinS,PrzebiegMaxS,SilnikS,MocMinS,MocMaxS,SpalanieMinS,SpalanieMaxS,ModelS,KomisIDS,KolorS,StatusS,SkrzyniaS,PaliwoS);
-        Scene scene = new Scene(tableView);
+        Scene scene = new Scene(tableView,1500,1000);
     	
         Stage stage = new Stage();
         stage.setTitle("Wyszukaj samochod");
@@ -128,9 +128,14 @@ public class KontrolerWyszukiwan {
     		VINS=VIN.getText();
     	}
     	
-    	 TableView tableView = db.SpotkanieDriver.getAll(VINS,KomisIDS,KlientIDS,date);
-         Scene scene = new Scene(tableView);
-     	
+    	TableView tableView = db.SpotkanieDriver.getAll(VINS,KomisIDS,KlientIDS,date);
+
+    	Scene scene = null;
+		if(KontrolerLogowania.getTyp().equals("klient"))
+	         scene = new Scene(tableView, 830,400);
+     	else if (KontrolerLogowania.getTyp().equals("sprzedawca") || KontrolerLogowania.getTyp().equals("admin"))
+			scene = new Scene(tableView, 1100,400);
+
          Stage stage = new Stage();
          stage.setTitle("Wyszukaj spotkanie");
          stage.setScene(scene);
@@ -168,7 +173,7 @@ public class KontrolerWyszukiwan {
     	}
     	
     	 TableView tableView = db.TransakcjaDriver.getAll(VINS,PracownikIDS,KlientIDS,date,CenaMinS,CenaMaxS,PlatnoscS);
-         Scene scene = new Scene(tableView);
+         Scene scene = new Scene(tableView,680,400);
      	
          Stage stage = new Stage();
          stage.setTitle("Wyszukaj transakcje");

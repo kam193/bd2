@@ -31,7 +31,7 @@ public class KontrolerDodawan {
     public TextField KlientID;
     public TextField PracownikID;
     public TextField KomisID;
-    public TextField Opis;
+    public TextArea Opis;
 
     public void initialize() {
         if (Kolor != (null)) {

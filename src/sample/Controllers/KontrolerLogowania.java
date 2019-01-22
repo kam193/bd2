@@ -45,7 +45,7 @@ public class KontrolerLogowania {
 
 			Stage stage = new Stage();
 			stage.setTitle("Aplikacja");
-			stage.setScene(new Scene(root, 600, 500));
+			stage.setScene(new Scene(root, 500, 350));
 			sample.Main.getPrimaryStage().close();
 			stage.show();
 
