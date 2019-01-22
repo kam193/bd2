@@ -88,12 +88,12 @@ public class KontrolerAplikacji {
         stage.show();
     }
 
-    public void UsunSamochod(ActionEvent keyEvent) throws IOException {
+    public void SprzedajSamochod(ActionEvent keyEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/WidokiSprzedawcy/Usuwanie/UsunSamochod.fxml"));
 
         Stage stage = new Stage();
-        stage.setTitle("Usun Samochod z bazy");
-        stage.setScene(new Scene(root, 400, 100));
+        stage.setTitle("Sprzedaj Samochod");
+        stage.setScene(new Scene(root, 450, 100));
         stage.show();
     }
 

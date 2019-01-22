@@ -1,10 +1,5 @@
 package sample.Controllers;
 
-import data_structure.Komis;
-import data_structure.Model;
-import data_structure.Samochod;
-import db.KomisDriver;
-import db.ModelDriver;
 import db.SamochodDriver;
 import db.SpotkanieDriver;
 import javafx.event.ActionEvent;
@@ -16,21 +11,21 @@ public class KontrolerUsuwan {
     public TextField SpotkanieID;
     public TextField VIN;
 
-    public void UsunSamochod(ActionEvent actionEvent) {
+    public void SprzedajSamochod(ActionEvent actionEvent) {
     	try {
             if (!SamochodDriver.isExist(VIN.getText())) {
                 ShowAlert("Nie istnieje samochod o danym VINie");
                 return;
             }
             int s = Integer.parseInt(VIN.getText());
-            int w = SamochodDriver.delete(s);
-            if(w==0) ShowAlert("Blad podczas usuwania");
+            int w = SamochodDriver.sell(s);
+            if(w==0) ShowAlert("Blad podczas sprzedawania");
             else {
-            ShowOkMessage("Usunieto samochod");
+            ShowOkMessage("Sprzedano samochod");
             Stage stage = (Stage) VIN.getScene().getWindow();
             stage.close();}
         } catch (Exception e) {
-            ShowAlert("Blad podczas usuwania");
+            ShowAlert("Blad podczas sprzedawania");
             e.printStackTrace();
         }
     }
