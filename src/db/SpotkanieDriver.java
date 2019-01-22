@@ -2,6 +2,8 @@ package db;
 
 import data_structure.Spotkanie;
 import javafx.scene.control.TableView;
+import sample.Controllers.KontrolerAplikacji;
+import sample.Controllers.KontrolerLogowania;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -73,4 +75,10 @@ public class SpotkanieDriver {
 		String query = String.format("insert into Spotkanie values (%s)", spotkanie.toString());
 		Driver.insertWithoutAutoId(query);
 	}
+	
+    public static int delete(int ID) throws SQLException {
+    	String query = "delete from Spotkanie where ID="+ID;
+    	if(KontrolerLogowania.getTyp().equals("klient")) query=query+" and Klient_ID="+KontrolerLogowania.getID();
+    	return Driver.insertWithoutAutoId(query);
+    }
 }

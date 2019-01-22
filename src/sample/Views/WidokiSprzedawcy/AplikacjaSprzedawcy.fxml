@@ -105,7 +105,7 @@
                            <children>
                               <VBox prefHeight="310.0" prefWidth="150.0" spacing="4.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#UsunSamochod" text="Usuń" />
+                                    <Button mnemonicParsing="false" onAction="#SprzedajSamochod" text="Sprzedaj" />
                                     <Button mnemonicParsing="false" onAction="#OdwolajSpotkanie" text="Odwołaj" />
                                  </children>
                               </VBox>

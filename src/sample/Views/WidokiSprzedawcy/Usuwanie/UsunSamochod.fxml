@@ -36,6 +36,6 @@
                     </VBox>
                 </children>
             </HBox>
-            <Button layoutX="334.0" layoutY="40.0" mnemonicParsing="false" onAction="#UsunSamochod" text="Usuń" />
+            <Button layoutX="334.0" layoutY="40.0" mnemonicParsing="false" onAction="#SprzedajSamochod" text="Sprzedaj" />
         </children></AnchorPane>
 </Pane>
